@@ -1,0 +1,11 @@
+The main functions are:
+
+-reference_findingTimesInLongSig.m
+-findingTimesInLongSig.m
+
+The function that I used to check for accuracy is called
+checkingForAccuracy.m
+
+referencesignalApp.mlapp is the final matlab GUI which I created.
+
+The rest of the functions are helper functions.
