@@ -8,34 +8,44 @@
 // *****MOTOR CREATE******
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); //creating the motor shield object
 
-Adafruit_DCMotor *myMotorL = AFMS.getMotor(1); //creating the object for Motor 1
-Adafruit_DCMotor *myMotorR = AFMS.getMotor(2); //creating the object for Motor 2
+Adafruit_DCMotor *myMotorL = AFMS.getMotor(3); //creating the object for Motor 1
+Adafruit_DCMotor *myMotorR = AFMS.getMotor(4); //creating the object for Motor 2
 
 String voice; //The input from the serial is the speech, it's stored as a string
 
 
 // ** Functions to Turn the Motors on and off ***
 void LeftOn(){
-   myMotorL->run(FORWARD);
-   myMotorL->setSpeed(50); 
-}
-void LeftOff(){
-   myMotorL->setSpeed(0); 
-}
-void RightOn(){
-   myMotorR->run(FORWARD);
-   myMotorR->setSpeed(50); 
-}
-void RightOff(){
    myMotorR->setSpeed(0); 
+   myMotorR->run(BACKWARD);
+   myMotorL->setSpeed(100); 
+   myMotorL->run(BACKWARD);
+}
+
+void RightOn(){
+   myMotorL->setSpeed(0);
+   myMotorL->run(BACKWARD);
+   myMotorR->setSpeed(100); 
+   myMotorR->run(BACKWARD);
+    
+}
+void Back(){
+   myMotorR->setSpeed(100); 
+   myMotorL->setSpeed(100);
+   myMotorL->run(FORWARD);
+   myMotorR->run(FORWARD);
 }
 void BothOn(){
-   myMotorL->run(FORWARD);
-   myMotorR->run(FORWARD);
+   myMotorL->setSpeed(100);
+   myMotorR->setSpeed(100);
+   myMotorL->run(BACKWARD);
+   myMotorR->run(BACKWARD);
 }
 void BothOff(){
    myMotorL->setSpeed(0); 
    myMotorR->setSpeed(0); 
+   myMotorL->run(FORWARD);
+   myMotorR->run(FORWARD);
 }
 
 void setup() {
@@ -52,20 +62,18 @@ void loop() {
   }
     if (voice.length() > 0) { //If there's something to read, do some functions
       Serial.println(voice);  
-        if (voice == "left" || voice =="left on"){
-          LeftOn();
-        }
-        if (voice == "right" || voice =="right on"){
+        if (voice == "left" || voice =="turn left"){
           RightOn();
         }
-        if (voice == "stop left" || voice == "left off"){
-          LeftOff();
-        }
-        if (voice == "stop right" || voice == "right off"){
-          RightOff();
+        if (voice == "right" || voice =="turn right"){
+          LeftOn();
         }
         if (voice == "forward" || voice=="go"){
           BothOn();
+        }
+        if (voice == "backward" || voice == "back"){
+
+          Back();
         }
         if (voice == "stop" || voice=="off" || voice=="all off"){
           BothOff();
