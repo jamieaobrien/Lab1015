@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.335" />
 <!--         android:onClick="BlueToothFunc" is what you will put in the empty space in the button section-->
     <Button
-        android:id="@+id/speachbutton"
+        android:id="@+id/btnSpeak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
