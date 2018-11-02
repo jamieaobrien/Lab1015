@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import static com.example.allison.protoapp.R.id.txtSpeechInput;
+
 public class MainActivity extends AppCompatActivity {
     private TextView txtSpeechInput;
     private Button btnSpeak;
@@ -23,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtSpeechInput = findViewById(R.id.textView);
+        txtSpeechInput = findViewById(R.id.txtSpeechInput);
         btnSpeak = findViewById(R.id.btnSpeak);
 
-        // hide the action bar
-        getActionBar().hide();
+//        // hide the action bar
+//        getActionBar().hide();
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
