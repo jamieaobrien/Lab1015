@@ -37,9 +37,5 @@
         app:layout_constraintTop_toBottomOf="@+id/txtSpeechInput"
         app:layout_constraintVertical_bias="0.337"
         tools:ignore="UnknownId" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tap_on_mic"/>
 
 </android.support.constraint.ConstraintLayout>
