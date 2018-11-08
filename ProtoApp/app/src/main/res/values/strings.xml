@@ -5,4 +5,9 @@
     <string name="speech_prompt">Say something&#8230;</string>
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
     <string name="tap_on_mic">Push button to speak</string>
+    <string name="title_activity_device_list">DeviceListActivity</string>
+    <string name="select_device">Select your bluetooth module</string>
+    <string name="Paired_Devices">Paired Devices</string>
+    <string name="Other">Other</string>
+    <string name="Scan">Scan</string>
 </resources>

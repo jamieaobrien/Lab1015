@@ -3,7 +3,13 @@ package com.example.allison.protoapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.Set;
+
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.support.v7.widget.Toolbar;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -13,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import static com.example.allison.protoapp.R.id.txtSpeechInput;
+//import static com.example.allison.protoapp.R.id.txtSpeechInput;
 
 public class MainActivity extends AppCompatActivity {
     private TextView txtSpeechInput;
@@ -28,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         txtSpeechInput = findViewById(R.id.txtSpeechInput);
         btnSpeak = findViewById(R.id.btnSpeak);
 
-//        // hide the action bar
-//        getActionBar().hide();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
@@ -38,8 +44,28 @@ public class MainActivity extends AppCompatActivity {
                 promptSpeechInput();
             }
         });
-
     }
+
+    public List getNames(View view){
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        List<String> deviceName;
+        List<String> deviceHardwareAddress;
+
+        deviceName = new ArrayList<>();
+        deviceHardwareAddress = new ArrayList<>();
+        if (pairedDevices.size() > 0) {
+            // There are paired devices. Get the name and address of each paired device.
+            for (BluetoothDevice device : pairedDevices) {
+                deviceName.add(device.getName());
+                deviceHardwareAddress.add(device.getAddress()); // MAC address
+
+            }
+        }
+        return deviceName;
+        // need to take values from devicename and hardwareaddress, and put them in deviceListActivity to be displayed
+    }
+
 
     /**
      * Showing google speech input dialog
