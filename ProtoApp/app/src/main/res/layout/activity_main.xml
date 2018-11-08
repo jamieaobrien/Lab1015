@@ -7,6 +7,33 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/toolbar_btn_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Connect"
+            tools:ignore="ContentDescription" />
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/toolbar_btn_disconnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Disconnect"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/txtSpeechInput"
         android:layout_width="wrap_content"
@@ -18,7 +45,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.335" />
-<!--         android:onClick="BlueToothFunc" is what you will put in the empty space in the button section-->
+    <!--         android:onClick="BlueToothFunc" is what you will put in the empty space in the button section-->
     <Button
         android:id="@+id/btnSpeak"
         android:layout_width="wrap_content"

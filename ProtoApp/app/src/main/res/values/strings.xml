@@ -10,4 +10,6 @@
     <string name="Paired_Devices">Paired Devices</string>
     <string name="Other">Other</string>
     <string name="Scan">Scan</string>
+    <string name="Disconnect">Disconnect</string>
+    <string name="Connect">Connect</string>
 </resources>

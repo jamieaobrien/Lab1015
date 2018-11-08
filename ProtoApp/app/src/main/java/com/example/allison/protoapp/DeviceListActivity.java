@@ -1,6 +1,6 @@
 package com.example.allison.protoapp;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,13 +33,7 @@ public class DeviceListActivity extends Activity
     private Set<String> mNewDevicesSet = null;
     private Button scanButton = null;
 
-    /**
-     * @category Activity
-     */
-    /*
-     * (non-Javadoc)
-     * @see android.app.Activity#onCreate(android.os.Bundle)
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -70,8 +64,8 @@ public class DeviceListActivity extends Activity
 
         // Initialize array adapters. One for already paired devices and
         // one for newly discovered devices
-        mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
-        mNewDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
+        mPairedDevicesArrayAdapter = new ArrayAdapter<>(this, R.layout.device_name);
+        mNewDevicesArrayAdapter = new ArrayAdapter<>(this, R.layout.device_name);
         mNewDevicesSet = new HashSet<>();
 
         // Find and set up the ListView for paired devices
@@ -114,13 +108,6 @@ public class DeviceListActivity extends Activity
         }
     }
 
-    /**
-     * @category Activity
-     */
-    /*
-     * (non-Javadoc)
-     * @see android.app.Activity#onDestroy()
-     */
     @Override
     protected void onDestroy()
     {
@@ -137,7 +124,7 @@ public class DeviceListActivity extends Activity
     }
 
     /**
-     * @category Discovery - Start device discover with the BluetoothAdapter
+     * Start device discover with the BluetoothAdapter
      */
     private void doDiscovery()
     {
@@ -197,7 +184,7 @@ public class DeviceListActivity extends Activity
 
 
     /**
-     * @category Bluetooth - Broadcast and onRecieve
+     * Bluetooth - Broadcast and onRecieve
      */
     // The BroadcastReceiver that listens for discovered devices and
     private final BroadcastReceiver mReceiver = new BroadcastReceiver()
