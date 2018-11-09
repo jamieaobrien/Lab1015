@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
      * Showing google speech input dialog
      */
     private void promptSpeechInput() {
+        Toast myToast = Toast.makeText(this, "Prompt speech input!", Toast.LENGTH_SHORT);
+        myToast.show();
         /* Takes user's speech input and returns it to same activity*/
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         /* Considers input in free form English*/
@@ -119,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         switch (requestCode) {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
@@ -127,6 +128,11 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     txtSpeechInput.setText(result.get(0));
+                    try {
+                        btSocket.getOutputStream().write(result.get(0).getBytes());;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
             }
