@@ -25,13 +25,13 @@ void loop() {
   Serial.print("Y: "); Serial.print(sensorValue2); Serial.print("  ");
   Serial.println("uT");
   
-  if(sensorValue1 <= 800){
+  if(sensorValue1 == 0){
     digitalWrite(redPin, HIGH);
   //  Serial.println("Here! red");Serial.print(sensorValue1);
     //delay(500);
     //digitalWrite(redPin, LOW);
     }
-   if(sensorValue2 <= 800){
+   if(sensorValue2 == 0){
     digitalWrite(bluePin, HIGH);
    // Serial.println("beep beep lettuce");Serial.print(sensorValue2);
     //delay(500);
