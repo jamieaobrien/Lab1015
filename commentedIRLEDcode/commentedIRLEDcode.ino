@@ -5,7 +5,7 @@ const int pulse_width = 2000;
 //number of times to go through the cycles, no cycles loop
 const int command_length = 4;
 
-//  distinct pattern of different pulse widths to differentiate commands
+//  distinct pattern of different voltages (intensities) to differentiate commands
 
 const int DRAGON[]     = {255, 136, 130, 34};
 const int BEE[]   = {255, 136, 130, 20};
