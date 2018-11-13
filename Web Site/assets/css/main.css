@@ -171,7 +171,7 @@ input, select, textarea {
 		margin: 2em 0 2em 0;
 	}
 
-	p, ul, ol, dl, table {
+	p, ol, dl, table {
 		margin-bottom: 2em;
 	}
 
@@ -2245,6 +2245,38 @@ input, select, textarea {
 			margin: 0;
 		}
 
+
+/* Our article */
+
+#our_article {
+
+	min-width : 50%;
+	width : 60%;
+	height : auto;
+	padding : 2em;
+	margin : 1em;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) 0 6px 20px 0 rgba(0,0,0,0.19);
+	display: inline-block;
+
+}
+
+.shadow {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+#blogpics {
+	min-width : 30%;
+	width : 30%;
+	height : auto;
+	padding : 2em;
+	margin : 1em;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) 0 6px 20px 0 rgba(0,0,0,0.19);
+	display: inline-block;
+}
+
+
 /* Main */
 
 	#main {
@@ -2267,6 +2299,7 @@ input, select, textarea {
 
 		#main .major h2 {
 			background: #f7f7f7 url("images/bg02.png");
+
 		}
 
 /* Footer */
