@@ -25,6 +25,7 @@ section, summary, time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;}
 
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
@@ -180,7 +181,7 @@ input, select, textarea {
 	.container {
 		margin: 0 auto;
 		max-width: 100%;
-		width: 70em;
+		/* width: 70em; */
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -1581,7 +1582,14 @@ input, select, textarea {
 			top: 1.75em;
 			margin: -4.5em 0 4.25em -3.5em;
 		}
-
+		.box .image.ours {
+			height: 167px;
+			width: 376px;
+			left: 1.75em;
+			top: 1.75em;
+			margin: -4.5em 0 4.25em -3.5em;
+			position: relative;
+		}
 		.box.post header {
 			padding-top: 1em;
 			margin: 0 0 2em 0;
@@ -2236,6 +2244,58 @@ input, select, textarea {
 				z-index: -1;
 				box-shadow: -32px 0 0 0 #fff, 0 -32px 0 0 #fff, 0 32px 0 0 #fff, -32px 32px 0 0 #fff, -32px -32px 0 0 #fff, 0 0 32px 0 rgba(0, 0, 0, 0.15);
 			}
+			#intro .bottomfirst{
+				    justify-content: center;
+					}
+						#intro .bottomfirst:before {
+							content: '';
+							width: 32px;
+							height: 100%;
+							position: absolute;
+							left: -webkit-calc(50% - 24px);
+							top: 0;
+							display: block;
+							z-index: -1;
+							box-shadow: 32px 0 0 0 #fff, 0 -32px 0 0 #fff, 0 32px 0 0 #fff, 32px 32px 0 0 #fff, 32px -32px 0 0 #fff, 0 0 32px 0 rgba(0, 0, 0, 0.15);
+						}
+
+						#intro .bottomfirst:after {
+							content: '';
+							width: 32px;
+							height: 100%;
+							position: absolute;
+							right: -webkit-calc(50%);
+							top: 0;
+							display: block;
+							z-index: -1;
+							box-shadow: -32px 0 0 0 #fff, 0 -32px 0 0 #fff, 0 32px 0 0 #fff, -32px 32px 0 0 #fff, -32px -32px 0 0 #fff, 0 0 32px 0 rgba(0, 0, 0, 0.15);
+						}
+						#intro .bottomsecond{
+							    justify-content: center;
+								}
+									#intro .bottomsecond:before {
+										content: '';
+										width: 32px;
+										height: 100%;
+										position: absolute;
+										left: -webkit-calc(50%);
+										top: 0;
+										display: block;
+										z-index: -1;
+										box-shadow: 32px 0 0 0 #fff, 0 -32px 0 0 #fff, 0 32px 0 0 #fff, 32px 32px 0 0 #fff, 32px -32px 0 0 #fff, 0 0 32px 0 rgba(0, 0, 0, 0.15);
+									}
+
+									#intro .bottomsecond:after {
+										content: '';
+										width: 32px;
+										height: 100%;
+										position: absolute;
+										right: -webkit-calc(50% + 24px);
+										top: 0;
+										display: block;
+										z-index: -1;
+										box-shadow: -32px 0 0 0 #fff, 0 -32px 0 0 #fff, 0 32px 0 0 #fff, -32px 32px 0 0 #fff, -32px -32px 0 0 #fff, 0 0 32px 0 rgba(0, 0, 0, 0.15);
+									}
 
 		#intro .button {
 			min-width: 12em;
@@ -2248,16 +2308,20 @@ input, select, textarea {
 
 /* Our article */
 
-#our_article {
+.column {
+	float:left;
+	width: 50%;
+	margin-left: 0em;
+	margin-right: 0em;
+}
 
-	min-width : 50%;
-	width : 60%;
+
+#our_article {
 	height : auto;
 	padding : 2em;
 	margin : 1em;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) 0 6px 20px 0 rgba(0,0,0,0.19);
 	display: inline-block;
-
 }
 
 .shadow {
@@ -2267,15 +2331,17 @@ input, select, textarea {
 }
 
 #blogpics {
-	min-width : 30%;
-	width : 30%;
 	height : auto;
 	padding : 2em;
 	margin : 1em;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) 0 6px 20px 0 rgba(0,0,0,0.19);
 	display: inline-block;
 }
-
+.mySlides {
+	width: 70%;
+	height : 500px;
+}
+a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen icons */
 
 /* Main */
 
