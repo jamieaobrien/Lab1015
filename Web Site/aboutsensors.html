@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>PoeProjectLab1015</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">Lab 1015</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li class="current"><a href="index.html">Home</a></li>
+								<li class="current"><a href="team.html">Team</a></li>
+								<li class="current"><a href="motivation.html">Motivation</a></li>
+								<li class="current"><a href="blogpage.html">Blog</a></li>
+								<li class="current"><a href="finalproduct.html">Final Product</a></li>
+
+
+						</nav>
+
+				</section>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+
+
+								<!-- Content -->
+									<article class="box post">
+										<a href="#" class="image featured"><img src="/home/allison/Lab1015/Web Site/images/tsop4038.jpg" alt="" /></a>
+										<header>
+											<h2>How (our) Laser Tag is Made</h2> </header>
+										<p>
+											Fun fact! Laser tag doesn't actually shoot and collect hits with actual lasers (that'd be dangerous). Instead,
+                      to build a laser tag game, you use IR leds and IR sensors.
+										</p>
+										<p>
+                      We're using TSOP4038 IR <a href="https://www.vishay.com/docs/81926/tsop4038.pdf" >sensors</a>. It has a wide range (a relative transmission distance up to 45 degrees - all directions but behind it- and 30 meters).
+                      It was interesting to find out that the sensor doesn't sense IR light waves by themselves, but change in <i>frequency</i>. There's a message comprised of ones and zeros encoded in wave (on/high and off/low).
+                      This message is transmitted in a carrier frequency, sort of a base frequency, and then a background frequency is transmitted - its a different frequency, and it represents a "rest". The carrier frequency
+                      for the TSOP4038 is 38 kHz. When it recieves the signal, the TSOP4038 gives a variable output in voltage, starting at its positive voltage input, and going down to zero, as the signal grows stronger.
+										</p>
+										<section>
+											<header>
+												<h3>How We Tested, Tried and Used It</h3>
+											</header>
+											<p>
+                        The first thing which we did was make sure the sensors and leds worked. First, we hooked up the leds to power and determined if they were working. Here's a tip: you can usually see IR light through a phone camera - except, some phone cameras now have IR filters, blocking the IR light! Most old phones don't have filters,
+                        though. Next, we hooked up the sensors to a different power source and to an Arduino. We set the PWM frequency, and used this code to visualize the output from the serial monitor :
+                        <p>
+                          Serial.print("X: "); Serial.print(sensorValue1); Serial.print("  "); </br>
+                          Serial.print("Y: "); Serial.print(sensorValue2); Serial.print("  ");  </br>
+                          Serial.println("uT");
+                        </p>
+											</p>
+											<p>
+												From there, we faced a TV remote to the sensor and clicked the power button. From the serial monitor, we saw there was a response.
+                        We then tried shining the IR leds onto the sensor and got no response - here we had to go back and read up on what an IR sensor actually detects.
+                        We used the instructions from <a href="http://www.zovirl.com/2008/11/12/building-a-universal-remote-with-an-arduino/">Zovirl Industries</a> as a base, and modified the code to our needs.
+											</p>
+                      <p>
+                        We used this code, a sensor and an led to determine where our sensors and leds should be placed on our robots. Because of its wide range,
+                        we decided that we'd put two sensors on either side, and a variable amount of leds on the face.
+                      </p>
+                      <p>
+                        To finally integrate the sensors and leds with our robots, we created Arduino code which executes different functions in response to the output of the sensors.
+                      </p>
+										</section>
+										<section>
+											<header>
+												<h3>So in conclusion ...</h3>
+											</header>
+											<p>
+
+											</p>
+										</section>
+									</article>
+
+
+						</div>
+					</div>
+				</section>
+
+
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

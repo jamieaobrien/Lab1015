@@ -68,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
     private boolean isBtConnected = false;
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     Intent newint = getIntent();
-    String address = "20:13:11:14:11:79";
+    String Daddress = "98:D3:34:91:0A:BF";
+    String Baddress = "98:D3:32:31:18:B8";
+    String Araddress = "98:D3:32:10:F7:87";
+    String Haddress = "98:D3:32:30:F0:B5";
     private boolean ConnectSuccess = true;
 
     @Override
@@ -146,7 +149,27 @@ public class MainActivity extends AppCompatActivity {
         {
             if (btSocket == null || !isBtConnected) {
                 mBtAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
-                BluetoothDevice dispositivo = mBtAdapter.getRemoteDevice(address);//connects to the device's address and checks if it's available
+                BluetoothDevice dispositivo = mBtAdapter.getRemoteDevice(Baddress);//connects to the device's address and checks if it's available
+                btSocket = dispositivo.createRfcommSocketToServiceRecord(myUUID);//create a RFCOMM (SPP) connection
+                BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
+                btSocket.connect();//start connection
+                Toast myToast = Toast.makeText(this, "Dragon!", Toast.LENGTH_SHORT);
+                myToast.show();
+            }
+        }
+        catch (IOException e)
+        {
+            ConnectSuccess = false;//if the try failed, you can check the exception here
+        }
+    }
+
+    public void dragon(View view) //while the progress dialog is shown, the connection is done in background
+    {
+        try
+        {
+            if (btSocket == null || !isBtConnected) {
+                mBtAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
+                BluetoothDevice dispositivo = mBtAdapter.getRemoteDevice(Daddress);//connects to the device's address and checks if it's available
                 btSocket = dispositivo.createRfcommSocketToServiceRecord(myUUID);//create a RFCOMM (SPP) connection
                 BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                 btSocket.connect();//start connection
@@ -159,6 +182,47 @@ public class MainActivity extends AppCompatActivity {
             ConnectSuccess = false;//if the try failed, you can check the exception here
         }
     }
+
+    public void Hedgehog(View view) //while the progress dialog is shown, the connection is done in background
+    {
+        try
+        {
+            if (btSocket == null || !isBtConnected) {
+                mBtAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
+                BluetoothDevice dispositivo = mBtAdapter.getRemoteDevice(Haddress);//connects to the device's address and checks if it's available
+                btSocket = dispositivo.createRfcommSocketToServiceRecord(myUUID);//create a RFCOMM (SPP) connection
+                BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
+                btSocket.connect();//start connection
+                Toast myToast = Toast.makeText(this, "Hello Toast!", Toast.LENGTH_SHORT);
+                myToast.show();
+            }
+        }
+        catch (IOException e)
+        {
+            ConnectSuccess = false;//if the try failed, you can check the exception here
+        }
+    }
+
+    public void Armadillo(View view) //while the progress dialog is shown, the connection is done in background
+    {
+        try
+        {
+            if (btSocket == null || !isBtConnected) {
+                mBtAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
+                BluetoothDevice dispositivo = mBtAdapter.getRemoteDevice(Araddress);//connects to the device's address and checks if it's available
+                btSocket = dispositivo.createRfcommSocketToServiceRecord(myUUID);//create a RFCOMM (SPP) connection
+                BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
+                btSocket.connect();//start connection
+                Toast myToast = Toast.makeText(this, "Hello Toast!", Toast.LENGTH_SHORT);
+                myToast.show();
+            }
+        }
+        catch (IOException e)
+        {
+            ConnectSuccess = false;//if the try failed, you can check the exception here
+        }
+    }
+
 
 }
 //    @Override
