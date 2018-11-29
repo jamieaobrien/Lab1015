@@ -1,3 +1,9 @@
+#include <Wire.h>
+#include <Adafruit_MotorShield.h>
+#include "utility/Adafruit_MS_PWMServoDriver.h"
+Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
+Adafruit_DCMotor *myMotor1 = AFMS.getMotor(2);
+Adafruit_DCMotor *myMotor2 = AFMS.getMotor(3);
 #define BIT_IS_SET(i, bits)  (1 << i & bits) // variable that has two inputs, which are parameterized
 
 int milkylife=3;
