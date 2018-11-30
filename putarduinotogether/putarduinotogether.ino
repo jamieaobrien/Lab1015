@@ -1,4 +1,15 @@
+#include <Wire.h>
+#include <Adafruit_MotorShield.h>
+#include "utility/Adafruit_MS_PWMServoDriver.h"
+Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
+Adafruit_DCMotor *myMotor1 = AFMS.getMotor(2);
+Adafruit_DCMotor *myMotor2 = AFMS.getMotor(3);
 #define BIT_IS_SET(i, bits)  (1 << i & bits) // variable that has two inputs, which are parameterized
+
+int milkylife=3;
+
+long currtim=millis();
+long prevtim=0;
 
 const int led_pin = 3;
 const int pulse_width = 2000;
@@ -30,8 +41,7 @@ void setup() {
   pinMode(3, OUTPUT);
   pinMode(sensorPin1, INPUT);
   pinMode(sensorPin2, INPUT);
-  pinMode(redPin, OUTPUT);
-  pinMode(bluePin, OUTPUT);
+
   Serial.begin(9600);
 }
 // *** Writing all the helper functions **** 
@@ -110,8 +120,67 @@ void BothOff(){
    myMotorR->run(FORWARD);
 }
 
-void loop() {
-
+void Shootybootymcscooty(){ 
   command(DRAGON);
   delay(1000);
+}
+
+void GASGASGAS(){
+  LeftOn();
+  RightOff();
+  delay(1000)
+  RightOn();
+  LeftOff();
+  delay(1000);
+  RightOff();
+  LeftOff(); 
+}
+
+void loop() {
+  if (milkylife==0){
+    GASGASGAS();
+    exit(0);
+  }
+  analogWrite(3, 255);
+  sensorValue1 = analogRead(sensorPin1);
+  sensorValue2 = analogRead(sensorPin2);
+  
+  if(sensorValue1 == 0 && currtim-prevtim>=3000){
+    GASGASGAS(); 
+    prevtim=currtim;
+    milkylife-=1;
+    }
+   if(sensorValue2 == 0 && currtim-prevtim>=3000){
+    GASGASGAS(); 
+    prevtim=currtim 
+    milkylife-=1;  
+    }
+  while(Serial.available()) {
+    delay(10);
+    voice =Serial.readString();
+  }
+  if (voice.length() > 0) { //If there's something to read, do some functions
+    Serial.println(voice);  
+      if (voice == "left" || voice =="turn left"){
+        RightOn();
+      }
+      if (voice == "right" || voice =="turn right"){
+        LeftOn();
+      }
+      if (voice == "forward" || voice=="go"){
+        BothOn();
+      }
+      if (voice == "backward" || voice == "back"){
+
+        Back();
+      }
+      if (voice == "stop" || voice=="off" || voice=="all off"){
+        BothOff();
+      }
+      if (voice == "shoot" || voice=="pewpew" || voice=="fire"){
+        Shootybootyscooty();
+      }
+    voice="";
+  }
+
 }
