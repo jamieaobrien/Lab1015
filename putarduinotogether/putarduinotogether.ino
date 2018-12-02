@@ -2,16 +2,20 @@
 #include <Adafruit_MotorShield.h>
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
-Adafruit_DCMotor *myMotor1 = AFMS.getMotor(2);
-Adafruit_DCMotor *myMotor2 = AFMS.getMotor(3);
+Adafruit_DCMotor *myMotorL = AFMS.getMotor(2);
+Adafruit_DCMotor *myMotorR = AFMS.getMotor(3);
 #define BIT_IS_SET(i, bits)  (1 << i & bits) // variable that has two inputs, which are parameterized
 
+#include <SoftwareSerial.h>
+
+SoftwareSerial BTSerial(10,11);
 int milkylife=3;
 
 long currtim=millis();
 long prevtim=0;
 
 const int led_pin = 3;
+int laser = 8;
 const int pulse_width = 2000;
 //number of times to go through the cycles, no cycles loop
 const int command_length = 4;
@@ -26,23 +30,21 @@ int sensorPin1 = A2;
 int sensorPin2 = A4;
 int sensorValue1 = 0;
 int sensorValue2 = 0;
-int redPin = 8;
-int bluePin = 7;
 
+String voice; 
 void setup() {
 
-  pinMode(led_pin, OUTPUT);
   
   Serial.begin(9600);
+  BTSerial.begin(38400);
   //**Motor Setup**
   AFMS.begin(9600);
 
   TCCR2B = TCCR2B & B11111000 | B00000001; // for PWM frequency of 31372.55 Hz
-  pinMode(3, OUTPUT);
+  pinMode(led_pin, OUTPUT);
+  pinMode(12, OUTPUT);
   pinMode(sensorPin1, INPUT);
   pinMode(sensorPin2, INPUT);
-
-  Serial.begin(9600);
 }
 // *** Writing all the helper functions **** 
 
@@ -120,15 +122,33 @@ void BothOff(){
    myMotorR->run(FORWARD);
 }
 
+void RightOff(){ 
+   myMotorR->setSpeed(0); 
+   myMotorR->run(FORWARD);
+}
+
+void LeftOff(){ 
+   myMotorL->setSpeed(0); 
+   myMotorL->run(FORWARD);
+}
+
 void Shootybootymcscooty(){ 
+  digitalWrite(12, HIGH);
+  delay(100);
   command(DRAGON);
-  delay(1000);
+  command(DRAGON);
+  command(DRAGON);
+  command(DRAGON);
+  command(DRAGON);
+  command(DRAGON);
+  command(DRAGON);
+  digitalWrite(0, HIGH);
 }
 
 void GASGASGAS(){
   LeftOn();
   RightOff();
-  delay(1000)
+  delay(1000);
   RightOn();
   LeftOff();
   delay(1000);
@@ -137,27 +157,31 @@ void GASGASGAS(){
 }
 
 void loop() {
+ 
   if (milkylife==0){
     GASGASGAS();
     exit(0);
   }
-  analogWrite(3, 255);
   sensorValue1 = analogRead(sensorPin1);
   sensorValue2 = analogRead(sensorPin2);
-  
-  if(sensorValue1 == 0 && currtim-prevtim>=3000){
-    GASGASGAS(); 
+//  Serial.println(sensorValue1);
+//  Serial.println(sensorValue2);
+  if(sensorValue1 < 300){
+    
+    GASGASGAS();  
     prevtim=currtim;
     milkylife-=1;
     }
-   if(sensorValue2 == 0 && currtim-prevtim>=3000){
+   if(sensorValue2 < 300){
+    
     GASGASGAS(); 
-    prevtim=currtim 
+  
+    prevtim=currtim; 
     milkylife-=1;  
     }
-  while(Serial.available()) {
+  while(BTSerial.available()) {
     delay(10);
-    voice =Serial.readString();
+    voice =BTSerial.readString();
   }
   if (voice.length() > 0) { //If there's something to read, do some functions
     Serial.println(voice);  
@@ -178,7 +202,7 @@ void loop() {
         BothOff();
       }
       if (voice == "shoot" || voice=="pewpew" || voice=="fire"){
-        Shootybootyscooty();
+        Shootybootymcscooty();
       }
     voice="";
   }
