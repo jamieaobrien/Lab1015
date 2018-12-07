@@ -2164,7 +2164,7 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background: #CCE8F4 url("../../images/poepics/pic01replacement.jpg");
+		background: #CCE8F4 url("../../images/poepics/poesprint2.jpg");
 		background-position: center center;
 		background-size: auto 100%;
 		background-repeat: no-repeat;
@@ -2837,7 +2837,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 				.box .image.featured {
 					left: 15px;
 					top: 15px;
-					margin: -40px 0 40px -30px;
+					margin: -40px -30px 40px -30px;
 				}
 
 				.box.post header {
