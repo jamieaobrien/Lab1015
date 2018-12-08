@@ -2338,10 +2338,17 @@ input, select, textarea {
 	display: inline-block;
 }
 .mySlides {
-	width: 70%;
-	height : 500px;
+  width: 200px; /*any size*/
+  height: 200px; /*any size*/
+}
+
+.object-fit-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*magic*/
 }
 a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen icons */
+
 
 /* Main */
 
@@ -2454,7 +2461,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 		/* Section/Article */
 
 			header.major {
-				margin: 0.75em 0 2.5em 0;
+				margin: 0.75em 2.5em 2.5em 0;
 			}
 
 				header.major h2 {
