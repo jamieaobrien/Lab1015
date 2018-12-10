@@ -30,8 +30,7 @@ int sensorPin1 = A2;
 int sensorPin2 = A4;
 int sensorValue1 = 0;
 int sensorValue2 = 0;
-int leadpoisoning= 7;
-int leadybeadyspaghetti=8;
+
 
 String voice; 
 void setup() {
@@ -47,13 +46,10 @@ void setup() {
   pinMode(12, OUTPUT);
   pinMode(sensorPin1, INPUT);
   pinMode(sensorPin2, INPUT);
-  pinMode(leadpoisoning,OUTPUT);
-  pinMode(leadybeadyspaghetti,OUTPUT);
-  digitalWrite(leadpoisoning,LOW);
-  digitalWrite(leadybeadyspaghetti,LOW);
+
 }
 // *** Writing all the helper functions **** 
-
+// ** trying new IR led code**  
 void turnon(int pin, int time) {
   // the time it takes to go from peak to peak
   static const int period = 25;
@@ -93,7 +89,6 @@ void command(const int bytes[]) { // for the number of distinct patterns
   }
   turnoff(led_pin, 4 * pulse_width); //"gap time" 
 }
-
 // ** Functions to Turn the Motors on and off ***
 void LeftOn(){
 
@@ -142,19 +137,17 @@ void LeftOff(){
 
 void Shootybootymcscooty(){ 
   digitalWrite(12, HIGH);
-  delay(100);
+  delay(500);
   command(DRAGON);
   command(DRAGON);
   command(DRAGON);
-    command(DRAGON);
   command(DRAGON);
   command(DRAGON);
-    command(DRAGON);
   command(DRAGON);
   command(DRAGON);
-//  digitalWrite(3,HIGH);
-//  delay(100);
-//   digitalWrite(3,LOW);
+  command(DRAGON);
+  command(DRAGON);
+
   digitalWrite(12, LOW);
 }
 
@@ -179,13 +172,13 @@ void loop() {
   sensorValue2 = analogRead(sensorPin2);
 //  Serial.println(sensorValue1);
 //  Serial.println(sensorValue2);
-  if(sensorValue1 < 300){
+  if(sensorValue1 < 100){
     
     GASGASGAS();  
     prevtim=currtim;
     milkylife-=1;
     }
-   if(sensorValue2 < 300){
+   if(sensorValue2 < 100){
     
     GASGASGAS(); 
   
@@ -198,44 +191,64 @@ void loop() {
 
   }
   if (voice.length() > 0) { //If there's something to read, do some functions
-     digitalWrite(leadpoisoning, HIGH);
     Serial.println(voice);  
       if (voice == "left" || voice =="turn left"){
-        digitalWrite(leadpoisoning, LOW);
-         digitalWrite(leadybeadyspaghetti,HIGH);
         RightOn();
-         digitalWrite(leadybeadyspaghetti,LOW);
+
       }
-      if (voice == "right" || voice =="turn right"){
-        digitalWrite(leadpoisoning, LOW);
-           digitalWrite(leadybeadyspaghetti,HIGH);
+      if (voice == "left 45"){
+        RightOn();
+        delay(600); // used to be 383
+        RightOff();
+      }
+
+      if (voice == "right 45"){
         LeftOn();
-          digitalWrite(leadybeadyspaghetti,LOW);
+        delay(400);
+        LeftOff();
+      }
+      if(voice == "left 90"){
+        RightOn();
+        delay(1200);
+        RightOff();
+      }
+      if (voice == "right 90"){
+        LeftOn();
+        delay(800);
+        LeftOff();
+      }
+
+      if (voice == "right 180" | voice == "turn 180"){
+        LeftOn();
+        delay(1800);
+        LeftOff();
+      }
+
+      if (voice == "left 180") {
+        RightOn();
+        delay(1600);
+        RightOff();
+      }
+      
+      if (voice == "right" || voice =="turn right"){
+
+        LeftOn();
+
       }
       if (voice == "forward" || voice=="go"){
-        digitalWrite(leadpoisoning, LOW);
-           digitalWrite(leadybeadyspaghetti,HIGH);
+
         BothOn();
-          digitalWrite(leadybeadyspaghetti,LOW);
       }
       if (voice == "backward" || voice == "back"){
-        digitalWrite(leadpoisoning, LOW);
-           digitalWrite(leadybeadyspaghetti,HIGH);
-
         Back();
-          digitalWrite(leadybeadyspaghetti,LOW);
       }
       if (voice == "stop" || voice=="off" || voice=="all off"){
-        digitalWrite(leadpoisoning, LOW);
-           digitalWrite(leadybeadyspaghetti,HIGH);
         BothOff();
-          digitalWrite(leadybeadyspaghetti,LOW);
       }
       if (voice == "shoot" || voice=="pewpew" || voice=="fire"){
-        digitalWrite(leadpoisoning, LOW);
-           digitalWrite(leadybeadyspaghetti,HIGH);
+ 
         Shootybootymcscooty();
-          digitalWrite(leadybeadyspaghetti,LOW);
+
       }
     voice="";
   }
