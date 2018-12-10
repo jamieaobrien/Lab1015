@@ -154,6 +154,13 @@ void Turn180(){
   LeftOff();
 }
 
+void Ram(){
+  myMotorL->setSpeed(250);
+  myMotorR->setSpeed(250);
+  myMotorL->run(BACKWARD);
+  myMotorR->run(BACKWARD);
+}
+
 void Shootybootymcscooty(){ 
   digitalWrite(12, HIGH);
   delay(500);
@@ -274,26 +281,30 @@ void loop() {
         LeftOff();
         BothOn();
       }
+      if (voice == "ram") {
+        Ram();
+        delay(1000);
+        BothOn();
+      }
       if (voice == "dance") { // kinda does the macarena
         if (dance_step == 1) {
           Right90();
-          dance_step = 2;
         }
         if (dance_step == 2) {
           BothOn();
           delay(800);
-          dance_step = 3;
         }
         if (dance_step == 3) {
           Turn180();
-          dance_step = 4;
         }
         if (dance_step == 4) {
           BothOn();
-          dance_step = 5;
         }
         if (dance_step == 5) {
           GASGASGAS();
+        }
+        dance_step += 1;
+        if (dance_step == 6) {
           dance_step = 1;
         }
       }

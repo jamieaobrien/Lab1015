@@ -338,19 +338,18 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
                                     mRecyclerView.smoothScrollToPosition(0);
                                     Log.d("speech:", text);
 
-                                    // my code
-                                    if (btSocket != null & checkWords(text) != null) { //& checkWords(text)!=""
-                                        try {
-                                            btSocket.getOutputStream().write(checkWords(text).getBytes()); //checWords(text)
-                                            Toast mToast = Toast.makeText(getApplicationContext(), "Sending to BT", Toast.LENGTH_SHORT);
-                                            mToast.show();
-                                        } catch (IOException | NullPointerException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-//                                    else {
-//                                        Toast myToast = Toast.makeText(getApplicationContext(), "BT not connected", Toast.LENGTH_SHORT);
-//                                        myToast.show();
+                                    String[] s = {text};
+                                    new CheckWords().execute(s);
+//
+//                                    // my code
+//                                    if (btSocket != null & checkWords(text) != null) { //& checkWords(text)!=""
+//                                        try {
+//                                            btSocket.getOutputStream().write(checkWords(text).getBytes()); //checWords(text)
+//                                            Toast mToast = Toast.makeText(getApplicationContext(), "Sending to BT", Toast.LENGTH_SHORT);
+//                                            mToast.show();
+//                                        } catch (IOException | NullPointerException e) {
+//                                            e.printStackTrace();
+//                                        }
 //                                    }
                                 } else {
                                     mText.setText(text);
@@ -408,61 +407,87 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
 
     }
 
-    public String checkWords(String text) {
-        text = text.toLowerCase();
-        if (text.contains("stop")) {
-            return "stop";
-        }
-        if (text.contains("forward")) {
-            return "forward";
-        }
-        if (text.contains("shoot")) {
-            return "shoot";
-        }
-        if (text.contains("fire")) {
-            return "fire";
-        }
-        if (text.contains("pew")) {
-            return "pew";
-        }
-        if (text.contains("back")) {
-            return "back";
-        }
-        if (text.contains("spin")) {
-            return "spin";
-        }
-        if (text.contains("dance")) {
-            return "dance";
-        }
-        if (text.contains("run") | text.contains("boo") | text.contains("surprise")){
-            return "run";
-        }
-        if (text.contains("left")) {
-            if (text.contains("45") | text.contains("30") | text.contains("forty")) {
-                return "left 45";
+    private class CheckWords extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... s) {
+            String text = s[0].toLowerCase();
+            if (text.contains("stop")) {
+                SendtoBT("stop");
             }
-            if (text.contains("90") | text.contains("ninety")) {
-                return "left 90";
+            if (text.contains("forward")) {
+                SendtoBT("forward");
             }
-            if (text.contains("180")) {
-                return "left 180";
+            if (text.contains("shoot")) {
+                SendtoBT("shoot");
             }
-            return "left";
+            if (text.contains("fire")) {
+                SendtoBT("fire");
+            }
+            if (text.contains("pew")) {
+                SendtoBT("pew");
+            }
+            if (text.contains("back")) {
+                SendtoBT("back");
+            }
+            if (text.contains("spin")) {
+                SendtoBT("spin");
+            }
+            if (text.contains("dance")) {
+                SendtoBT("dance");
+            }
+            if (text.contains("run") | text.contains("boo") | text.contains("surprise")) {
+                SendtoBT("run");
+            }
+            if (text.contains("ram") | text.contains("fast")) {
+                SendtoBT("ram");
+            }
+            if (text.contains("left")) {
+                if (text.contains("45") | text.contains("30") | text.contains("forty")) {
+                    SendtoBT("left 45");
+                }
+                if (text.contains("90") | text.contains("ninety")) {
+                    SendtoBT("left 90");
+                }
+                if (text.contains("180")) {
+                    SendtoBT("left 180");
+                }
+                SendtoBT("left");
+            }
+            if (text.contains("right") | text.contains("write")) {
+                if (text.contains("45") | text.contains("30") | text.contains("forty")) {
+                    SendtoBT("right 45");
+                }
+                if (text.contains("90") | text.contains("ninety")) {
+                    SendtoBT("right 90");
+                }
+                if (text.contains("180")) {
+                    SendtoBT("right 180");
+                }
+                SendtoBT("right");
+            }
+            return null;
         }
-        if (text.contains("right") | text.contains("write")) {
-            if (text.contains("45") | text.contains("30") | text.contains("forty")) {
-                return "right 45";
+
+        private void SendtoBT(String text){
+            if (btSocket != null) {
+                try {
+                    btSocket.getOutputStream().write(text.getBytes());
+                    // Tell user it is sending
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast mToast = Toast.makeText(getApplicationContext(), "Sending to BT", Toast.LENGTH_SHORT);
+                            mToast.show();
+                        }
+                    });
+                    // Tell debugger it's working
+                    Log.d("BT", "BT message is sending!");
+                } catch (IOException | NullPointerException e) {
+                    e.printStackTrace();
+                }
             }
-            if (text.contains("90") | text.contains("ninety")) {
-                return "right 90";
-            }
-            if (text.contains("180")) {
-                return "right 180";
-            }
-            return "right";
         }
-        return null;
     }
+
 
 
     private class BTService extends AsyncTask<String, Integer, Void> {
