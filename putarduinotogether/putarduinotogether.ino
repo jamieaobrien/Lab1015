@@ -31,8 +31,9 @@ int sensorPin2 = A4;
 int sensorValue1 = 0;
 int sensorValue2 = 0;
 
-
 String voice; 
+int dance_step = 1;
+
 void setup() {
 
   
@@ -135,6 +136,24 @@ void LeftOff(){
    myMotorL->run(FORWARD);
 }
 
+void Left90(){
+  RightOn();
+  delay(1200);
+  RightOff();
+}
+
+void Right90(){
+  LeftOn();
+  delay(800);
+  LeftOff();
+}
+
+void Turn180(){
+  LeftOn();
+  delay(1800);
+  LeftOff();
+}
+
 void Shootybootymcscooty(){ 
   digitalWrite(12, HIGH);
   delay(500);
@@ -208,20 +227,14 @@ void loop() {
         LeftOff();
       }
       if(voice == "left 90"){
-        RightOn();
-        delay(1200);
-        RightOff();
+        Left90();
       }
       if (voice == "right 90"){
-        LeftOn();
-        delay(800);
-        LeftOff();
+        Right90();
       }
 
       if (voice == "right 180" | voice == "turn 180"){
-        LeftOn();
-        delay(1800);
-        LeftOff();
+        Turn180();
       }
 
       if (voice == "left 180") {
@@ -250,7 +263,42 @@ void loop() {
         Shootybootymcscooty();
 
       }
-    voice="";
+      if (voice == "spin"){
+        LeftOn();
+        delay(3600);
+        LeftOff();
+      }
+      if (voice == "run") {
+        LeftOn();
+        delay(1800);
+        LeftOff();
+        BothOn();
+      }
+      if (voice == "dance") { // kinda does the macarena
+        if (dance_step == 1) {
+          Right90();
+          dance_step = 2;
+        }
+        if (dance_step == 2) {
+          BothOn();
+          delay(800);
+          dance_step = 3;
+        }
+        if (dance_step == 3) {
+          Turn180();
+          dance_step = 4;
+        }
+        if (dance_step == 4) {
+          BothOn();
+          dance_step = 5;
+        }
+        if (dance_step == 5) {
+          GASGASGAS();
+          dance_step = 1;
+        }
+      }
+    if (voice != "dance") {
+      voice = "";
+    }
   }
-
 }
