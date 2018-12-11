@@ -179,9 +179,8 @@ input, select, textarea {
 /* Container */
 
 	.container {
-		margin: 0 auto;
-		max-width: 100%;
-		/* width: 70em; */
+		margin: auto;
+		max-width: 100;
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -223,6 +222,7 @@ input, select, textarea {
 		flex-wrap: wrap;
 		box-sizing: border-box;
 		align-items: stretch;
+		justify-content: center;
 	}
 
 		.row > * {
@@ -1527,8 +1527,13 @@ input, select, textarea {
 
 /* Section/Article */
 
-	section, article {
-		margin-bottom: 2.5em;
+	article {
+		margin-bottom: 2em;
+	}
+
+	section {
+		margin-bottom: 2em;
+		text-align: center;
 	}
 
 		section > :last-child, section:last-child, article > :last-child, article:last-child {
@@ -1536,7 +1541,8 @@ input, select, textarea {
 		}
 
 	header {
-		margin: 0 0 1.5em 0;
+		margin: 0 0 .5em 0; /* changes how far below name the caption is */
+		text-align: center;
 	}
 
 		header > p {
@@ -2007,12 +2013,12 @@ input, select, textarea {
 			position: relative;
 			display: inline-block;
 			background-color: #d52349;
-			width: 9em;
-			padding: 1.75em 0 0.75em 0;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
-			margin: 0 0 4.5em 0;
+			width: 8em;
+			height: 8em;
+			padding: 0 0 0 0;
+			border-radius: 50%;
 			cursor: default;
+			background-size: cover;
 		}
 
 			.icon.featured:before {
@@ -2083,7 +2089,11 @@ input, select, textarea {
 
 			#nav > ul > li {
 				display: inline-block;
-				font-style: italic;
+				font-family: 'Allerta Stencil', Helvetica, sans-serif;
+				/* font-family: "Trebuchet MS", Helvetica, sans-serif; */
+				font-style: normal;
+				font-weight: normal;
+
 				margin: 0 0.35em 0 0.35em;
 			}
 
@@ -2095,7 +2105,8 @@ input, select, textarea {
 					border-radius: 5px;
 					color: #5d5d5d;
 					text-decoration: none;
-					padding: 0.6em 1.2em 0.6em 1.2em;
+					display: inline-block;
+					padding: 0.2em 1.2em 0.2em 1.2em;
 					-moz-transition: background-color .25s ease-in-out;
 					-webkit-transition: background-color .25s ease-in-out;
 					-ms-transition: background-color .25s ease-in-out;
@@ -2108,6 +2119,7 @@ input, select, textarea {
 				}
 
 				#nav > ul > li.current > a {
+					width: 130px;
 					background: #d52349;
 					color: #fff !important;
 					font-weight: 700;
@@ -2420,6 +2432,16 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 				font-size: 1.75em;
 			}
 
+/* Team Header */
+
+	#team-header {
+		font-size: 3em;
+		font-family: 'Allerta Stencil';
+		margin-bottom: 1em;
+		text-decoration-color: #F7B733;
+	}
+
+
 /* Copyright */
 
 	#copyright {
@@ -2477,6 +2499,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 		/* Header */
 
 			#header {
+				font-family: 'Allerta Stencil';
 				padding: 4em 0 3em 0;
 			}
 
@@ -2509,6 +2532,8 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 
 			#main {
 				padding: 30px 0;
+				justify-content: center;
+				margin: auto;
 			}
 
 		/* Footer */
