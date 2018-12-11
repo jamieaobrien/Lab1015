@@ -2080,11 +2080,12 @@ input, select, textarea {
 /* Nav */
 
 	#nav {
-		margin: 2.5em 0 0 0;
+		margin: 1em 0 0 0;
 	}
 
 		#nav > ul {
-			margin: 0;
+			margin: auto;
+			display: inline-block;
 		}
 
 			#nav > ul > li {
@@ -2106,7 +2107,7 @@ input, select, textarea {
 					color: #5d5d5d;
 					text-decoration: none;
 					display: inline-block;
-					padding: 0.2em 1.2em 0.2em 1.2em;
+					padding: 0.5em 1.2em 0.5em 1.2em;
 					-moz-transition: background-color .25s ease-in-out;
 					-webkit-transition: background-color .25s ease-in-out;
 					-ms-transition: background-color .25s ease-in-out;
@@ -2115,12 +2116,14 @@ input, select, textarea {
 				}
 
 				#nav > ul > li:hover > a, #nav > ul > li.active > a {
+					/* background: #fC4A1A; */
 					background: #f3f3f3;
 				}
 
 				#nav > ul > li.current > a {
 					width: 130px;
-					background: #d52349;
+					/* background: #d52349; */
+					background: #fC4A1A;
 					color: #fff !important;
 					font-weight: 700;
 				}
@@ -2500,7 +2503,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 
 			#header {
 				font-family: 'Allerta Stencil';
-				padding: 4em 0 3em 0;
+				padding: 2em 0 2em 0;
 			}
 
 		/* Banner */
