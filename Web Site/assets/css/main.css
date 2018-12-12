@@ -179,8 +179,16 @@ input, select, textarea {
 /* Container */
 
 	.container {
-		/* margin: auto; */
 		max-width: 100;
+	}
+
+/* For the section with the dogs and faces */
+	.container-team {
+		text-align: center;
+		align-items: center;
+		align-content: center;
+		margin: auto;
+		margin-top: 2em;
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -1583,7 +1591,7 @@ input, select, textarea {
 		border-bottom: solid 1px #ccc;
 		padding: 1.75em 1.75em 1.75em 1.75em;
 		position: inline-block;
-		height: 400px;
+		/* height: 400px; */
 	}
 
 		.box .image .featured {
