@@ -138,19 +138,19 @@ void LeftOff(){
 
 void Left90(){
   RightOn();
-  delay(1200);
+  delay(2170);
   RightOff();
 }
 
 void Right90(){
   LeftOn();
-  delay(800);
+  delay(2170);
   LeftOff();
 }
 
 void Turn180(){
   LeftOn();
-  delay(1800);
+  delay(4340);
   LeftOff();
 }
 
@@ -224,13 +224,13 @@ void loop() {
       }
       if (voice == "left 45"){
         RightOn();
-        delay(600); // used to be 383
+        delay(1050); // used to be 383
         RightOff();
       }
 
       if (voice == "right 45"){
         LeftOn();
-        delay(400);
+        delay(1050);
         LeftOff();
       }
       if(voice == "left 90"){
@@ -246,7 +246,7 @@ void loop() {
 
       if (voice == "left 180") {
         RightOn();
-        delay(1600);
+        delay(4340);
         RightOff();
       }
       
@@ -272,7 +272,7 @@ void loop() {
       }
       if (voice == "spin"){
         LeftOn();
-        delay(3600);
+        delay(8680);
         LeftOff();
       }
       if (voice == "run") {

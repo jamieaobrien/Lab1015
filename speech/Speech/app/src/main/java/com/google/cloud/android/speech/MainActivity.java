@@ -411,37 +411,31 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
         @Override
         protected String doInBackground(String... s) {
             String text = s[0].toLowerCase();
-            if (text.contains("stop")) {
+            if (text.contains("stop") | text.contains("halt") | text.contains("off") | text.contains("terminate")) {
                 SendtoBT("stop");
             }
             if (text.contains("forward")) {
                 SendtoBT("forward");
             }
-            if (text.contains("shoot")) {
+            if (text.contains("shoot") | text.contains("pew") | text.contains("fire")) {
                 SendtoBT("shoot");
             }
-            if (text.contains("fire")) {
-                SendtoBT("fire");
-            }
-            if (text.contains("pew")) {
-                SendtoBT("pew");
-            }
-            if (text.contains("back")) {
+            if (text.contains("back") | text.contains("retreat") | text.contains("beep")) {
                 SendtoBT("back");
             }
             if (text.contains("spin")) {
                 SendtoBT("spin");
             }
-            if (text.contains("dance")) {
+            if (text.contains("dance") | text.contains("macarena")) {
                 SendtoBT("dance");
             }
-            if (text.contains("run") | text.contains("boo") | text.contains("surprise")) {
+            if (text.contains("run") | text.contains("boo") | text.contains("surprise") | text.contains("fuck you")) {
                 SendtoBT("run");
             }
             if (text.contains("ram") | text.contains("fast")) {
                 SendtoBT("ram");
             }
-            if (text.contains("left")) {
+            if (text.contains("left") | (text.contains("lef"))) {
                 if (text.contains("45") | text.contains("30") | text.contains("forty")) {
                     SendtoBT("left 45");
                 }
@@ -453,7 +447,7 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
                 }
                 SendtoBT("left");
             }
-            if (text.contains("right") | text.contains("write")) {
+            if (text.contains("right") | text.contains("write") | text.contains("rite")) {
                 if (text.contains("45") | text.contains("30") | text.contains("forty")) {
                     SendtoBT("right 45");
                 }
