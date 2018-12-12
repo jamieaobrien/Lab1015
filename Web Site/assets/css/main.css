@@ -179,7 +179,7 @@ input, select, textarea {
 /* Container */
 
 	.container {
-		margin: auto;
+		/* margin: auto; */
 		max-width: 100;
 	}
 
@@ -222,7 +222,6 @@ input, select, textarea {
 		flex-wrap: wrap;
 		box-sizing: border-box;
 		align-items: stretch;
-		justify-content: center;
 	}
 
 		.row > * {
@@ -1533,7 +1532,6 @@ input, select, textarea {
 
 	section {
 		margin-bottom: 2em;
-		text-align: center;
 	}
 
 		section > :last-child, section:last-child, article > :last-child, article:last-child {
@@ -1575,18 +1573,26 @@ input, select, textarea {
 
 /* Box */
 
+	#front-blogs {
+		padding: 4em;
+		padding-left: 8em;
+	}
+
 	.box {
 		background: #ffffff;
 		border-bottom: solid 1px #ccc;
-		padding: 2.75em 1.75em 2.75em 1.75em;
+		padding: 1.75em 1.75em 1.75em 1.75em;
+		position: inline-block;
+		height: 400px;
 	}
 
-		.box .image.featured {
-			position: relative;
-			width: auto;
-			left: 1.75em;
-			top: 1.75em;
-			margin: -4.5em 0 4.25em -3.5em;
+		.box .image .featured {
+	    position: relative;
+	    float: left;
+	    background-position: 50% 50%;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+			height: 200px;
 		}
 		.box .image.ours {
 			height: 167px;
@@ -1724,7 +1730,6 @@ input, select, textarea {
 			}
 
 		.image.featured {
-			display: block;
 			width: 100%;
 			margin: 0 0 2em 0;
 		}
@@ -2009,7 +2014,7 @@ input, select, textarea {
 			display: none;
 		}
 
-		.icon.featured {
+		.icon.team {
 			position: relative;
 			display: inline-block;
 			background-color: #d52349;
@@ -2019,6 +2024,18 @@ input, select, textarea {
 			border-radius: 50%;
 			cursor: default;
 			background-size: cover;
+		}
+
+		.icon.featured {
+			position: relative;
+			display: inline-block;
+			background-color: #d52349;
+			width: 9em;
+			padding: 1.75em 0 .75em 0;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			margin: 0 0 4.5em 0;
+			cursor: default;
 		}
 
 			.icon.featured:before {
@@ -2079,8 +2096,11 @@ input, select, textarea {
 
 /* Nav */
 
+$nav-height: 73px;
+
 	#nav {
 		margin: 1em 0 0 0;
+		height: $nav-height;
 	}
 
 		#nav > ul {
@@ -2127,6 +2147,38 @@ input, select, textarea {
 					color: #fff !important;
 					font-weight: 700;
 				}
+
+		/* Collapse nav bar on scroll down */
+			.collapse {
+			  animation: collapse .5s ease forwards;
+			}
+
+			/* Open nav bar on scroll up */
+			.open {
+			  animation: open .5s ease forwards;
+			}
+
+			@keyframes collapse {
+			from {
+				opacity: 1;
+				top: 0;
+			}
+			to {
+				opacity: 0;
+				top: -$nav-height;
+			}
+		}
+
+		@keyframes open {
+			from {
+				opacity: 0;
+				top: -$nav-height;
+			}
+			to {
+				opacity: 1;
+				top: 0;
+			}
+		}
 
 	.dropotron {
 		border-radius: 5px;
@@ -2179,14 +2231,16 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background: #CCE8F4 url("../../images/poepics/poesprint2.jpg");
+		background: #CCE8F4 url("../../images/lightroompics/IMG_5023.JPG");
 		background-position: center center;
-		background-size: auto 100%;
+		background-size: 100% auto;
 		background-repeat: no-repeat;
 		text-align: center;
 		position: relative;
 		padding: 8em 0;
 		margin: 4em 0 0 0;
+		width: 100%;
+		height: 80vh;
 	}
 
 		#banner header {
@@ -2194,6 +2248,7 @@ input, select, textarea {
 			display: inline-block;
 			padding: 2.5em 5em;
 			border-radius: 5px;
+			margin: auto;
 		}
 
 			#banner header h2 {
@@ -2535,7 +2590,6 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 
 			#main {
 				padding: 30px 0;
-				justify-content: center;
 				margin: auto;
 			}
 
@@ -2939,8 +2993,14 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 		/* Icons */
 
 			.icon.featured {
-				width: 8em;
-				margin: 0 0 3em 0;
+				position: relative;
+				display: inline-block;
+				background-color: #d52349;
+				width: 9em;
+				padding: 1.75em 0 0.75em 0;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				margin: 0 0 4.5em 0;
 			}
 
 				.icon.featured:after {
