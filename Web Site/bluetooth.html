@@ -64,15 +64,32 @@
 												We also had to wire the TX and RX pins of the bluetooth module to I/O pins of the arduino that we had specified to act as TX and RX
 												pins within the arduino code using the Software Serial library. The TX and RX pins recievedata as bytes and translates that data as
 												strings or chars within the serial terminal. If these two connections are not wired properly, the arduino will not recieve the voice
-												commands. 
+												commands.
 											</p>
+										<section>
+											<header>
+												<h3>Arduino Code</h3>
+											</header>
 											<p>
-												Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-												eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-												elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-												sit amet nullam consequat feugiat dolore tempus.
+												Within the arudino code, we needed to specify where the arduino would be receiving data  and the formata that the data would be in. We caused
+												the software serial library to create a second serial terminal that would allow the arduino to communicate with the bluetooth module. A second
+												serial terminal is needed because the arduino's default serial terminal has a set baudrate that is too low for the bluetooth module. The arduino
+												reads the output on the serial monitor as a string. The arduino uses these strings to decide which command to run.
 											</p>
-										</section>
+									</section>
+									<section>
+										<header>
+											<h3>Application Code</h3>
+										</header>
+										<p>
+											The phone app has the code for connecting the phone to the bluetooth module within a seperate thread than the voice recognition of the software
+											because having them both in the main thread created large delays and caused the application to freeze. The bluetooth is in a sub-thread that runs
+											in the background while the voice recognition is in the main thread that recieves most of the memory and power. The app has buttons that connect
+											to the bluetooth module for each robot based upon the UID of the module. After it connects, the app creates a bluetooth socket, which is a communication
+											thread that allows two devices to relay data to one another. Because the bluetooth module is a slave that only recieves data, the phone application
+											only needs to convert the text it has to bytes and sen it through the connection.
+										</p>
+								</section>
 										<section>
 											<header>
 												<h3>So in conclusion ...</h3>
