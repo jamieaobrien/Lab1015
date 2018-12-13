@@ -257,7 +257,7 @@ public class SpeechService extends Service {
                                 .setSampleRateHertz(sampleRate)
                                 .build())
                         .setInterimResults(false)
-                        .setSingleUtterance(true)
+//                        .setSingleUtterance(true)
                         .build())
                 .build());
     }
