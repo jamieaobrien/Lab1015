@@ -1618,14 +1618,6 @@ input, select, textarea {
 		/* height: 400px; */
 	}
 
-		.box .image .featured {
-	    position: relative;
-	    float: left;
-	    background-position: 50% 50%;
-	    background-repeat: no-repeat;
-	    background-size: cover;
-			height: 200px;
-		}
 		.box .image.ours {
 			height: 167px;
 			width: 376px;
@@ -1821,6 +1813,20 @@ input, select, textarea {
 		.image.featured img {
 			width: 100%;
 			max-height: 250px;
+			object-fit: cover;
+		}
+
+		.image-article {
+			max-width: 100%;
+			margin: auto;
+			max-height: 400px;
+			object-fit: cover;
+			/* could be error */
+			/* height: 200px; */
+		}
+		.image-article img {
+			max-width: 100%;
+			max-height: 400px;
 			object-fit: cover;
 		}
 
