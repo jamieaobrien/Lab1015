@@ -176,6 +176,10 @@ input, select, textarea {
 		margin-bottom: 2em;
 	}
 
+	section p {
+		margin-bottom: 0; /* for blog posts */
+	}
+
 /* Container */
 
 	.container {
@@ -189,6 +193,13 @@ input, select, textarea {
 		align-content: center;
 		margin: auto;
 		margin-top: 2em;
+	}
+
+	.container-blogpost {
+		align-items: center;
+		align-content: center;
+		margin: 2em;
+		margin-top: 0;
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -1538,6 +1549,15 @@ input, select, textarea {
 		margin-bottom: 2em;
 	}
 
+	article h3 {
+		margin-top: 1.5em;
+		margin-bottom: .5em;
+	}
+
+	article h2 {
+		font-family: 'Allerta Stencil', "Trebuchet MS", sans-serif;
+	}
+
 	section {
 		margin-bottom: 2em;
 	}
@@ -1628,6 +1648,54 @@ input, select, textarea {
 		.box footer ul.actions {
 			margin-bottom: 0;
 		}
+
+
+		/* Little blogs */
+
+		.blog {
+			background: #ffffff;
+			border-bottom: solid 1px #ccc;
+			padding: 1.75em 1.75em 1.75em 1.75em;
+			position: inline-block;
+			text-align: center;
+			/* height: 400px; */
+		}
+
+			.blog .image .featured {
+		    position: relative;
+		    float: left;
+		    background-position: 50% 50%;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+				height: 200px;
+			}
+			.blog .image.ours {
+				height: 167px;
+				width: 376px;
+				left: 1.75em;
+				top: 1.75em;
+				margin: -4.5em 0 4.25em -3.5em;
+				position: relative;
+			}
+			.blog.post header {
+				padding-top: 1em;
+				margin: 0 0 2em 0;
+			}
+
+			.blog.post h2 {
+				font-size: 2.5em;
+				letter-spacing: -0.015em;
+			}
+
+			.blog.post header > p {
+				margin-top: 1.25em;
+				font-size: 1.25em;
+			}
+
+			.blog footer ul.actions {
+				margin-bottom: 0;
+			}
+
 
 /* Button */
 
@@ -1752,6 +1820,7 @@ input, select, textarea {
 	ul {
 		list-style: disc;
 		padding-left: 1em;
+		margin-left: 2em;
 	}
 
 		ul li {
@@ -2104,11 +2173,18 @@ input, select, textarea {
 
 /* Nav */
 
-$nav-height: 73px;
+$nav-height: 50px;
 
 	#nav {
-		margin: 1em 0 0 0;
+		margin: 0 0 0 0;
 		height: $nav-height;
+		height: auto;
+		align-items: center;
+		align-content: center;
+	}
+
+	#lab1015 {
+		vertical-align: middle;
 	}
 
 		#nav > ul {
@@ -2118,12 +2194,12 @@ $nav-height: 73px;
 
 			#nav > ul > li {
 				display: inline-block;
-				font-family: 'Allerta Stencil', Helvetica, sans-serif;
+				font-family: 'Allerta Stencil', "Trebuchet MS", sans-serif;
 				/* font-family: "Trebuchet MS", Helvetica, sans-serif; */
 				font-style: normal;
 				font-weight: normal;
-
 				margin: 0 0.35em 0 0.35em;
+				text-align: center;
 			}
 
 				#nav > ul > li > ul {
@@ -2239,7 +2315,7 @@ $nav-height: 73px;
 /* Banner */
 
 	#banner {
-		background: #CCE8F4 url("../../images/lightroompics/IMG_5023.JPG");
+		background: #fff url("../../images/lightroompics/cropped_heading.JPG"); /* bigger picture: IMG_5023*/
 		background-position: center center;
 		background-size: 100% auto;
 		background-repeat: no-repeat;
@@ -2251,12 +2327,14 @@ $nav-height: 73px;
 		height: 80vh;
 	}
 
+
 		#banner header {
 			background-color: rgba(34, 30, 31, 0.98);
 			display: inline-block;
 			padding: 2.5em 5em;
 			border-radius: 5px;
 			margin: auto;
+			margin-top: 25vh;
 		}
 
 			#banner header h2 {
@@ -2458,7 +2536,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 	#footer {
 		position: relative;
 		color: #858484;
-		padding: 4em 0;
+		padding: 2em 0;
 	}
 
 		#footer:before {
@@ -2502,7 +2580,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 
 	#team-header {
 		font-size: 3em;
-		font-family: 'Allerta Stencil';
+		font-family: 'Allerta Stencil', "Trebuchet MS", sans-serif;
 		margin-bottom: 1em;
 		text-decoration-color: #F7B733;
 	}
@@ -2512,7 +2590,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 
 	#copyright {
 		text-align: center;
-		margin: 3em 0 2em 0;
+		margin: 2em 0 2em 0;
 	}
 
 		#copyright ul.links {
@@ -2521,7 +2599,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 			background: rgba(255, 255, 255, 0.05);
 			border-radius: 5px;
 			margin: 0;
-			padding: 0.85em 2.25em 0.85em 2.25em;
+			padding: 0.85em 8em 0.85em 8em;
 		}
 
 /* XLarge */
@@ -2565,15 +2643,15 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 		/* Header */
 
 			#header {
-				font-family: 'Allerta Stencil';
-				padding: 2em 0 2em 0;
+				font-family: 'Allerta Stencil', "Trebuchet MS", sans-serif;
+				padding: 1em 0 1em 0;
 			}
 
 		/* Banner */
 
 			#banner {
-				padding: 6em 0;
-				margin: 3em 0 0 0;
+				padding: 30vh 0;
+				margin: 1.25em 0 0 0;
 			}
 
 		/* Intro */
@@ -2604,7 +2682,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 		/* Footer */
 
 			#footer {
-				padding: 3em 0;
+				padding: 2em 0;
 			}
 
 				#footer:before {
