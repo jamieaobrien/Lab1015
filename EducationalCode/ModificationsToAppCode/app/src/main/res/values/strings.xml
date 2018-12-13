@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProtoApp</string>
+    <string name="push_button_to_speak">Push button to Speak?</string>
+    <string name="speak">Speak</string>
+    <string name="speech_prompt">Say something&#8230;</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Push button to speak</string>
+</resources>
