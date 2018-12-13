@@ -3,8 +3,14 @@
 #include <Adafruit_MotorShield.h> 
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
+<<<<<<< HEAD
+Adafruit_DCMotor *myMotorL = AFMS.getMotor(3);
+Adafruit_DCMotor *myMotorR = AFMS.getMotor(2);
+#define BIT_IS_SET(i, bits)  (1 << i & bits) // variable that has two inputs, which are parameterized
+=======
 Adafruit_DCMotor *myMotorL = AFMS.getMotor(2);
 Adafruit_DCMotor *myMotorR = AFMS.getMotor(3);
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
 
 #include <SoftwareSerial.h> // bluetooth import
 
@@ -16,6 +22,14 @@ long prevtim=0;
 
 const int led_pin = 3;
 int laser = 8;
+<<<<<<< HEAD
+int checkbluetooth = 5;
+int checkcommand = 6;
+const int pulse_width = 2000;
+//number of times to go through the cycles, no cycles loop
+const int command_length = 4;
+=======
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
 
 
 //pins for sensing
@@ -27,6 +41,35 @@ int sensorValue2 = 0;
 String voice; 
 int dance_step = 1;
 
+<<<<<<< HEAD
+//notes for songs
+const int c = 261;
+const int d = 294;
+const int e = 329;
+const int f = 349;
+const int g = 391;
+const int gS = 415;
+const int a = 440;
+const int aS = 455;
+const int b = 466;
+const int cH = 523;
+const int cSH = 554;
+const int dH = 587;
+const int dSH = 622;
+const int eH = 659;
+const int fH = 698;
+const int fSH = 740;
+const int gH = 784;
+const int gSH = 830;
+const int aH = 880;
+ 
+const int buzzerPin = 8;
+const int ledPin1 = 12;
+const int ledPin2 = 13;
+ 
+int counter = 0;
+ 
+=======
 // *** Functions for IR LED ************************
 #define BIT_IS_SET(i, bits)  (1 << i & bits) // variable that has two inputs, which are parameterized
 const int pulse_width = 2000;
@@ -38,6 +81,7 @@ const int command_length = 4;
 const int DRAGON[]     = {255, 136, 130, 34};
 const int BEE[]   = {255, 136, 130, 20};
 
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
 
 void setup() {
 
@@ -51,7 +95,8 @@ void setup() {
   pinMode(12, OUTPUT);
   pinMode(sensorPin1, INPUT);
   pinMode(sensorPin2, INPUT);
-
+  pinMode(checkbluetooth, OUTPUT);
+  pinMode(checkcommand, OUTPUT);
 }
 
 
@@ -99,30 +144,30 @@ void command(const int bytes[]) { // for the number of distinct patterns
 void LeftOn(){
 
    myMotorR->setSpeed(0); 
-   myMotorR->run(BACKWARD);
+   myMotorR->run(FORWARD);
    myMotorL->setSpeed(100); 
-   myMotorL->run(BACKWARD);
+   myMotorL->run(FORWARD);
 
 }
 
 void RightOn(){
    myMotorL->setSpeed(0);
-   myMotorL->run(BACKWARD);
+   myMotorL->run(FORWARD);
    myMotorR->setSpeed(100); 
-   myMotorR->run(BACKWARD);
+   myMotorR->run(FORWARD);
     
 }
 void Back(){
    myMotorR->setSpeed(100); 
    myMotorL->setSpeed(100);
-   myMotorL->run(FORWARD);
-   myMotorR->run(FORWARD);
+   myMotorL->run(BACKWARD);
+   myMotorR->run(BACKWARD);
 }
 void BothOn(){
    myMotorL->setSpeed(100);
    myMotorR->setSpeed(100);
-   myMotorL->run(BACKWARD);
-   myMotorR->run(BACKWARD);
+   myMotorL->run(FORWARD);
+   myMotorR->run(FORWARD);
 }
 void BothOff(){
    myMotorL->setSpeed(0); 
@@ -133,7 +178,7 @@ void BothOff(){
 
 void RightOff(){ 
    myMotorR->setSpeed(0); 
-   myMotorR->run(FORWARD);
+   myMotorR->run(BACKWARD);
 }
 
 void LeftOff(){ 
@@ -142,18 +187,21 @@ void LeftOff(){
 }
 
 void Left90(){
+  BothOff();
   RightOn();
   delay(2170);
   RightOff();
 }
 
 void Right90(){
+  BothOff();
   LeftOn();
   delay(2170);
   LeftOff();
 }
 
 void Turn180(){
+  BothOff();
   LeftOn();
   delay(4340);
   LeftOff();
@@ -193,6 +241,60 @@ void gotShot(){
   LeftOff(); 
 }
 
+<<<<<<< HEAD
+//This is for song stuff
+void firstSection()
+{
+  beep(a, 500);
+  beep(a, 500);    
+  beep(a, 500);
+  beep(f, 350);
+  beep(cH, 150);  
+  beep(a, 500);
+  beep(f, 350);
+  beep(cH, 150);
+  beep(a, 650);
+ 
+  delay(500);
+ 
+  beep(eH, 500);
+  beep(eH, 500);
+  beep(eH, 500);  
+  beep(fH, 350);
+  beep(cH, 150);
+  beep(gS, 500);
+  beep(f, 350);
+  beep(cH, 150);
+  beep(a, 650);
+ 
+  delay(500);
+}
+void beep(int note, int duration)
+{
+  //Play tone on buzzerPin
+  tone(buzzerPin, note, duration);
+ 
+  //Play different LED depending on value of 'counter'
+  if(counter % 2 == 0)
+  {
+    delay(duration);
+  }else
+  {
+    delay(duration);
+  }
+ 
+  //Stop tone on buzzerPin
+  noTone(buzzerPin);
+ 
+  delay(50);
+ 
+  //Increment counter
+  counter++;
+}
+ 
+
+=======
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
 
 void loop() {
  
@@ -220,69 +322,114 @@ void loop() {
   // ** Listening to Commands 
   while(BTSerial.available()) {
     delay(10);
+<<<<<<< HEAD
+    voice = BTSerial.readString();
+    Serial.print("Plaz ");
+    Serial.println(voice);
+=======
     voice =BTSerial.readString(); 
 
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
   }
 if (voice.length() > 0) { //If there's something to read, execute functions
     Serial.println(voice);  
+<<<<<<< HEAD
+      digitalWrite(checkbluetooth, HIGH);
+      delay(100);
+      digitalWrite(checkbluetooth, LOW);
+=======
 
     // **** If the string matches one of the functions, execute that function *** 
      
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
       if (voice == "left" || voice =="turn left"){
+        digitalWrite(checkcommand, HIGH);
+        delay(10);
         RightOn();
-
+        digitalWrite(checkcommand, LOW);
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
       if (voice == "left 45"){
+        BothOff();
         RightOn();
         delay(1050); // used to be 383
         RightOff();
+        BTSerial.flush();
+      Serial.println("backlog"+String(voice)); 
       }
-
       if (voice == "right 45"){
+        BothOff();
         LeftOn();
         delay(1050);
         LeftOff();
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
       if(voice == "left 90"){
+        BothOff();
         Left90();
+        BTSerial.flush();
+  Serial.println("backlog"+String(voice)); 
       }
       if (voice == "right 90"){
+        BothOff();
         Right90();
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
 
       if (voice == "right 180" | voice == "turn 180"){
+        BothOff();
         Turn180();
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
 
       if (voice == "left 180") {
+        BothOff();
+        BothOff();
         RightOn();
         delay(4340);
         RightOff();
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
       
       if (voice == "right" || voice =="turn right"){
-
         LeftOn();
-
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
       if (voice == "forward" || voice=="go"){
-
+      digitalWrite(checkcommand, HIGH);
+      delay(100);
         BothOn();
+      digitalWrite(checkcommand, LOW);
+      BTSerial.flush();
+      Serial.print(BTSerial.readString());
+      Serial.println("backlog"); 
       }
       if (voice == "backward" || voice == "back"){
+        BothOff();
         Back();
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
       if (voice == "stop" || voice=="off" || voice=="all off"){
         BothOff();
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
       if (voice == "shoot" || voice=="pewpew" || voice=="fire"){
  
         Shootybootymcscooty();
-
+        BTSerial.flush();
+        Serial.println("backlog"+String(voice)); 
       }
       if (voice == "spin"){
         LeftOn();
-        delay(8680);
+        delay(10500);
         LeftOff();
       }
       if (voice == "run") {
@@ -294,19 +441,31 @@ if (voice.length() > 0) { //If there's something to read, execute functions
         delay(1000);
         BothOn();
       }
+<<<<<<< HEAD
+      if (voice == "sing") {
+        firstSection();
+      }
+=======
       // ** Beware, dance has issues with the bluetooth
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
       if (voice == "dance") { // kinda does the macarena
+        GASGASGAS();
+        firstSection();
         if (dance_step == 1) {
           Right90();
+          
         }
         if (dance_step == 2) {
           BothOn();
-          delay(800);
+          
+          //delay(800);
         }
         if (dance_step == 3) {
+          
           Turn180();
         }
         if (dance_step == 4) {
+          
           BothOn();
         }
         if (dance_step == 5) {
@@ -317,8 +476,8 @@ if (voice.length() > 0) { //If there's something to read, execute functions
           dance_step = 1;
         }
       }
-    if (voice != "dance") {
-      voice = "";
-    }
+//    if (voice != "dance") {
+    voice = "";
+//    }
   }
 }
