@@ -1694,6 +1694,7 @@ input, select, textarea {
 
 			.blog footer ul.actions {
 				margin-bottom: 0;
+				align-self: center;
 			}
 
 
@@ -1710,6 +1711,7 @@ input, select, textarea {
 		cursor: pointer;
 		border: 0;
 		border-radius: 5px;
+		/* Change blogpost button background */
 		background: #d52349;
 		color: #fff !important;
 		font-weight: 700;
