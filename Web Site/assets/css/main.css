@@ -2183,6 +2183,10 @@ $nav-height: 50px;
 		align-content: center;
 	}
 
+	#lab1015 {
+		vertical-align: middle;
+	}
+
 		#nav > ul {
 			margin: auto;
 			display: inline-block;
@@ -2532,7 +2536,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 	#footer {
 		position: relative;
 		color: #858484;
-		padding: 4em 0;
+		padding: 2em 0;
 	}
 
 		#footer:before {
@@ -2586,7 +2590,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 
 	#copyright {
 		text-align: center;
-		margin: 3em 0 2em 0;
+		margin: 2em 0 2em 0;
 	}
 
 		#copyright ul.links {
@@ -2595,7 +2599,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 			background: rgba(255, 255, 255, 0.05);
 			border-radius: 5px;
 			margin: 0;
-			padding: 0.85em 2.25em 0.85em 2.25em;
+			padding: 0.85em 8em 0.85em 8em;
 		}
 
 /* XLarge */
@@ -2678,7 +2682,7 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 		/* Footer */
 
 			#footer {
-				padding: 3em 0;
+				padding: 2em 0;
 			}
 
 				#footer:before {
