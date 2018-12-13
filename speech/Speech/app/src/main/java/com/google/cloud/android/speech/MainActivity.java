@@ -244,17 +244,17 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.armadillo:
-                if (btSocket == null) {
-                    String[] s = {"armadillo"};
-                    new BTService().execute(s);
-
-                } else {
-                    // could put a disconnect function here
-                    Toast myToast = Toast.makeText(this, "Already connected", Toast.LENGTH_SHORT);
-                    myToast.show();
-                }
-                return true;
+//            case R.id.armadillo:
+//                if (btSocket == null) {
+//                    String[] s = {"armadillo"};
+//                    new BTService().execute(s);
+//
+//                } else {
+//                    // could put a disconnect function here
+//                    Toast myToast = Toast.makeText(this, "Already connected", Toast.LENGTH_SHORT);
+//                    myToast.show();
+//                }
+//                return true;
             case R.id.dragon:
                 if (btSocket == null) {
                     String[] s = {"dragon"};
@@ -414,7 +414,7 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
             if (text.contains("stop") | text.contains("halt") | text.contains("off") | text.contains("terminate")) {
                 SendtoBT("stop");
             }
-            if (text.contains("forward")) {
+            if (text.contains("forward") | text.contains(" go")) {
                 SendtoBT("forward");
             }
             if (text.contains("shoot") | text.contains("pew") | text.contains("fire")) {
@@ -469,7 +469,7 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
                     // Tell user it is sending
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            Toast mToast = Toast.makeText(getApplicationContext(), "Sending to BT", Toast.LENGTH_SHORT);
+                            Toast mToast = Toast.makeText(getApplicationContext(), "Sent to BT!", Toast.LENGTH_SHORT);
                             mToast.show();
                         }
                     });
@@ -494,9 +494,9 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
             if (s[0].equals("dragon")) {
                 DragonConnect();
             }
-            if (s[0].equals("armadillo")) {
-                ArmaConnect();
-            }
+//            if (s[0].equals("armadillo")) {
+//                ArmaConnect();
+//            }
             if (s[0].equals("hedgehog")) {
                 HedgehogConnect();
             }
@@ -578,7 +578,7 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
 
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            Toast mToast = Toast.makeText(getApplicationContext(), "Connected to Bee!", Toast.LENGTH_SHORT);
+                            Toast mToast = Toast.makeText(getApplicationContext(), "Connected to Dragon!", Toast.LENGTH_SHORT);
                             mToast.show();
                         }
                     });
@@ -609,7 +609,7 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
 
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            Toast mToast = Toast.makeText(getApplicationContext(), "Connected to Bee!", Toast.LENGTH_SHORT);
+                            Toast mToast = Toast.makeText(getApplicationContext(), "Connected to Hedgehog!", Toast.LENGTH_SHORT);
                             mToast.show();
                         }
                     });
@@ -621,35 +621,35 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
         }
 
 
-        public void ArmaConnect() //while the progress dialog is shown, the connection is done in background
-        {
-            try {
-                if (btSocket == null || !isBtConnected) {
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast mToast = Toast.makeText(getApplicationContext(), "Connecting...", Toast.LENGTH_SHORT);
-                            mToast.show();
-                        }
-                    });
-
-                    mBtAdapter = BluetoothAdapter.getDefaultAdapter();
-                    BluetoothDevice dispositivo = mBtAdapter.getRemoteDevice(arma_address);
-                    btSocket = dispositivo.createRfcommSocketToServiceRecord(myUUID);
-                    BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
-                    btSocket.connect();
-
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast mToast = Toast.makeText(getApplicationContext(), "Connected to Bee!", Toast.LENGTH_SHORT);
-                            mToast.show();
-                        }
-                    });
-                    Log.d("BT", "BT is connected!");
-                }
-            } catch (IOException e) {
-                ConnectSuccess = false;//if the try failed, you can check the exception here
-            }
-        }
+//        public void ArmaConnect() //while the progress dialog is shown, the connection is done in background
+//        {
+//            try {
+//                if (btSocket == null || !isBtConnected) {
+//                    runOnUiThread(new Runnable() {
+//                        public void run() {
+//                            Toast mToast = Toast.makeText(getApplicationContext(), "Connecting...", Toast.LENGTH_SHORT);
+//                            mToast.show();
+//                        }
+//                    });
+//
+//                    mBtAdapter = BluetoothAdapter.getDefaultAdapter();
+//                    BluetoothDevice dispositivo = mBtAdapter.getRemoteDevice(arma_address);
+//                    btSocket = dispositivo.createRfcommSocketToServiceRecord(myUUID);
+//                    BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
+//                    btSocket.connect();
+//
+//                    runOnUiThread(new Runnable() {
+//                        public void run() {
+//                            Toast mToast = Toast.makeText(getApplicationContext(), "Connected to Bee!", Toast.LENGTH_SHORT);
+//                            mToast.show();
+//                        }
+//                    });
+//                    Log.d("BT", "BT is connected!");
+//                }
+//            } catch (IOException e) {
+//                ConnectSuccess = false;//if the try failed, you can check the exception here
+//            }
+//        }
 
     }
 }
