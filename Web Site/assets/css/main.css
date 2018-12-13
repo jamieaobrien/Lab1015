@@ -1554,6 +1554,10 @@ input, select, textarea {
 		margin-bottom: .5em;
 	}
 
+	h3 #tip {
+		margin-top: 0;
+	}
+
 	article h2 {
 		font-family: 'Allerta Stencil', "Trebuchet MS", sans-serif;
 	}
