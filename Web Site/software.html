@@ -48,13 +48,18 @@
 
 						<article class="box post">
 							<header>
-								<h2>Software & Firmware Subsystem</h2>
-								<p> </p>
+								<h2>Software & Firmware Subsystems</h2>
+								<br>
+								<a class="image featured"><img src="images/software.jpg" alt="" /></a>
 							</header>
-							<a class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-							<h2>Software</h2>
-							<h3>The App User Experience</h3>
+						</article>
 
+						<header class="major">
+							<h2>Software</h2>
+						</header>
+
+						<article class="box post">
+							<h3>The App User Experience</h3>
 							<p> The phone app as it is now is an Android app that has a button to connect to each robot through Bluetooth, and a “warn” button to make Bluetooth disconnect. The UI was built on <a href=“https://github.com/GoogleCloudPlatform/android-docs-samples/tree/master/speech/Speech”>
 								  Google Cloud Speech API’s Android demo</a>, and was designed, like our robots, to be playful, aesthetic, and easy to use. When someone speaks to the phone, the app runs speech recognition while listening, and displays the results on
 									the screen in cards, so that the user can see what their previous commands are. If the text recognized contains a command, the app will send that command to the Bluetooth board that it’s connected to, and display a pop-up message that says
@@ -70,32 +75,29 @@
 								sending/receiving from the app to the arduino. In the end, our delay was shaved down to 1-2 seconds, and the app sent the right commands more consistently. Read about how we minimized delay and improved accuracy with Streaming Speech
 								Recognition, Async Tasks (threading), word-filtering, and AT Commands <a href=””>here</a>! </p>
 
-							[Insert video of the app in action]
+							<!-- [Insert video of the app in action] -->
+						</article>
 
-							<h3> Firmware: The Arduino Code</h3>
+						<header class="major">
+							<h2>Firmware</h2>
+						</header>
+
+						<article class="box post">
+							<br>
+							<h3> The Arduino Code</h3>
 							<p>
-
 							</p>
+						</article>
 
-
-
-
-							<h3>Progression</h3>
-							<p>
-								<ul>
-									<li> Read here to learn about how we reduced the delay between commands and the
-									<li>The progression of our Arduino Code can be found in this blog post: <a href=#>Title</a></li>
-								</ul>
-							</p>
-							<section>
-							<header>
-								<h3>Firmware: Bluetooth</h3> </header>
+						<article class="box post">
+								<h3>Bluetooth</h3>
 							<p>
 								In this section we will discuss the bluetooth connection between the arudino and the phone app that our team created.
 								The electrical and software components of the bluetooth module consist of the bluetooth module, arduino and code within the
 								arduino and phone application. Each of these components must interact correctly to make communcation between the user and the
 								robot as smooth as possible.
 							</p>
+							<br>
 								<p>
 									Each of the robots used an HC-05 bluetooth module to communicate with the phone appplication. The module itself needed between
 									3.3 and 5 volts to work properly. The bluetooth module initially only transmits data, so we needed to use AT commands to put it
@@ -105,14 +107,14 @@
 									strings or chars within the serial terminal. If these two connections are not wired properly, the arduino will not recieve the voice
 									commands.
 								</p>
-								<p>
-								</p>
+								<br>
 								<p>
 									Within the arudino code, we needed to specify where the arduino would be receiving data  and the formata that the data would be in. We caused
 									the software serial library to create a second serial terminal that would allow the arduino to communicate with the bluetooth module. A second
 									serial terminal is needed because the arduino's default serial terminal has a set baudrate that is too low for the bluetooth module. The arduino
 									reads the output on the serial monitor as a string. The arduino uses these strings to decide which command to run.
 								</p>
+								<br>
 								<p>
 									The phone app has the code for connecting the phone to the bluetooth module within a seperate thread than the voice recognition of the software
 									because having them both in the main thread created large delays and caused the application to freeze. The bluetooth is in a sub-thread that runs
@@ -121,6 +123,7 @@
 									thread that allows two devices to relay data to one another. Because the bluetooth module is a slave that only recieves data, the phone application
 									only needs to convert the text it has to bytes and sen it through the connection.
 								</p>
+								<br>
 								<p>
 									The bluetooth connection still has many bugs. The arduino reliably recieves the commands that are sent to it from the phone app through the bluetooth module,
 									but there are many instances in which it does not execute the command. There is also an issue with the dragon robot that has the bluetooth module disconnect from
@@ -129,7 +132,6 @@
 									to skip over them. The arduino could have also become unresponsive because it did not get the command at the right time during the loop. As for the second issue, we believe
 									that the bluetooth module is broken in some way and needs to be replaced.
 								</p>
-					</section>
 						</article>
 
 					</div>
