@@ -35,12 +35,12 @@
         android:title="warn"
         app:showAsAction="ifRoom"
         />
-    <item
-        android:id="@+id/armadillo"
-        android:icon="@drawable/hedgehog"
-        android:title="hedgehog"
-        app:showAsAction="ifRoom"
-        />
+    <!--<item-->
+        <!--android:id="@+id/armadillo"-->
+        <!--android:icon="@drawable/hedgehog"-->
+        <!--android:title="hedgehog"-->
+        <!--app:showAsAction="ifRoom"-->
+        <!--/>-->
     <!--<item-->
         <!--android:id="@+id/action_user"-->
         <!--android:backgroundTint="@color/accent"-->
