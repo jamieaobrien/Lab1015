@@ -1659,13 +1659,18 @@ input, select, textarea {
 		.blog {
 			background: #ffffff;
 			border-bottom: solid 1px #ccc;
-			padding: 1.75em 1.75em 1.75em 1.75em;
+			padding: 1em 1em 1em 1em;
 			position: inline-block;
 			text-align: center;
 			/* height: 400px; */
 		}
 
-			.blog .image .featured {
+			.blogpost {
+				padding-left: 3em;
+				padding-right: 3em;
+			}
+
+			.blog .image.featured {
 		    position: relative;
 		    float: left;
 		    background-position: 50% 50%;
@@ -1811,9 +1816,20 @@ input, select, textarea {
 				width: auto;
 			}
 
+	/* This is where the blogpost images are shaped responsively. Use max-height to adjust how big they'll be */
+
 		.image.featured {
 			width: 100%;
-			margin: 0 0 2em 0;
+			margin: auto;
+			max-height: 250px;
+			object-fit: cover;
+			/* could be error */
+			/* height: 200px; */
+		}
+		.image.featured img {
+			width: 100%;
+			max-height: 250px;
+			object-fit: cover;
 		}
 
 		.image.left {
@@ -3010,10 +3026,8 @@ a.ex2:hover, a.ex2:active {font-size: 150%;} /* increases size on homescreen ico
 				padding: 25px 15px 20px 15px;
 			}
 
-				.box .image.featured {
-					left: 15px;
-					top: 15px;
-					margin: -40px -30px 40px -30px;
+				.boxpost {
+					object-fit: cover;
 				}
 
 				.box.post header {
