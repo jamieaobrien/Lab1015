@@ -1,31 +1,36 @@
-#include <Wire.h>
-#include <Adafruit_MotorShield.h>
+// motor shield import 
+#include <Wire.h> 
+#include <Adafruit_MotorShield.h> 
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
+<<<<<<< HEAD
 Adafruit_DCMotor *myMotorL = AFMS.getMotor(3);
 Adafruit_DCMotor *myMotorR = AFMS.getMotor(2);
 #define BIT_IS_SET(i, bits)  (1 << i & bits) // variable that has two inputs, which are parameterized
+=======
+Adafruit_DCMotor *myMotorL = AFMS.getMotor(2);
+Adafruit_DCMotor *myMotorR = AFMS.getMotor(3);
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
 
-#include <SoftwareSerial.h>
+#include <SoftwareSerial.h> // bluetooth import
 
-SoftwareSerial BTSerial(10,11);
-int milkylife=3;
+SoftwareSerial BTSerial(10,11); //setting up bluetooth
+int lifecount=3;
 
 long currtim=millis();
 long prevtim=0;
 
 const int led_pin = 3;
 int laser = 8;
+<<<<<<< HEAD
 int checkbluetooth = 5;
 int checkcommand = 6;
 const int pulse_width = 2000;
 //number of times to go through the cycles, no cycles loop
 const int command_length = 4;
+=======
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
 
-//  distinct pattern of different voltages (intensities) to differentiate commands
-
-const int DRAGON[]     = {255, 136, 130, 34};
-const int BEE[]   = {255, 136, 130, 20};
 
 //pins for sensing
 int sensorPin1 = A2;
@@ -36,6 +41,7 @@ int sensorValue2 = 0;
 String voice; 
 int dance_step = 1;
 
+<<<<<<< HEAD
 //notes for songs
 const int c = 261;
 const int d = 294;
@@ -63,14 +69,26 @@ const int ledPin2 = 13;
  
 int counter = 0;
  
+=======
+// *** Functions for IR LED ************************
+#define BIT_IS_SET(i, bits)  (1 << i & bits) // variable that has two inputs, which are parameterized
+const int pulse_width = 2000;
+//number of times to go through the cycles, no cycles loop
+const int command_length = 4;
+
+//  distinct pattern of different voltages (intensities) to differentiate commands
+
+const int DRAGON[]     = {255, 136, 130, 34};
+const int BEE[]   = {255, 136, 130, 20};
+
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
 
 void setup() {
 
   
-  Serial.begin(9600);
-  BTSerial.begin(38400);
-  //**Motor Setup**
-  AFMS.begin(9600);
+  Serial.begin(9600); //Serial setup
+  BTSerial.begin(38400); //Bluetooth setup
+  AFMS.begin(9600);   //Motor Setup
 
   TCCR2B = TCCR2B & B11111000 | B00000001; // for PWM frequency of 31372.55 Hz
   pinMode(led_pin, OUTPUT);
@@ -80,8 +98,9 @@ void setup() {
   pinMode(checkbluetooth, OUTPUT);
   pinMode(checkcommand, OUTPUT);
 }
-// *** Writing all the helper functions **** 
-// ** trying new IR led code**  
+
+
+// *** Helper functions **** 
 void turnon(int pin, int time) {
   // the time it takes to go from peak to peak
   static const int period = 25;
@@ -195,7 +214,7 @@ void Ram(){
   myMotorR->run(BACKWARD);
 }
 
-void Shootybootymcscooty(){ 
+void shoot(){ 
   digitalWrite(12, HIGH);
   delay(500);
   command(DRAGON);
@@ -211,7 +230,7 @@ void Shootybootymcscooty(){
   digitalWrite(12, LOW);
 }
 
-void GASGASGAS(){
+void gotShot(){
   LeftOn();
   RightOff();
   delay(1000);
@@ -222,6 +241,7 @@ void GASGASGAS(){
   LeftOff(); 
 }
 
+<<<<<<< HEAD
 //This is for song stuff
 void firstSection()
 {
@@ -273,41 +293,55 @@ void beep(int note, int duration)
 }
  
 
+=======
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
 
 void loop() {
  
-  if (milkylife==0){
-    GASGASGAS();
+  if (lifecount==0){ // check if the robot has any lives
+    gotShot();
     exit(0);
   }
+  
+// check if sensors got shot
   sensorValue1 = analogRead(sensorPin1);
   sensorValue2 = analogRead(sensorPin2);
-//  Serial.println(sensorValue1);
-//  Serial.println(sensorValue2);
-  if(sensorValue1 < 100){
-    
-    GASGASGAS();  
-    prevtim=currtim;
-    milkylife-=1;
+  
+// if sensors are shot, respond
+  if(sensorValue1 < 100){ //100 is limit, value will get lower the more IR light is present
+    gotShot();  
+    prevtim=currtim; //update time
+    lifecount-=1; // lose life
     }
    if(sensorValue2 < 100){
-    
-    GASGASGAS(); 
-  
+    gotShot(); 
     prevtim=currtim; 
-    milkylife-=1;  
+    lifecount-=1;  
     }
+
+  // ** Listening to Commands 
   while(BTSerial.available()) {
     delay(10);
+<<<<<<< HEAD
     voice = BTSerial.readString();
     Serial.print("Plaz ");
     Serial.println(voice);
+=======
+    voice =BTSerial.readString(); 
+
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
   }
-  if (voice.length() > 0) { //If there's something to read, do some functions
+if (voice.length() > 0) { //If there's something to read, execute functions
     Serial.println(voice);  
+<<<<<<< HEAD
       digitalWrite(checkbluetooth, HIGH);
       delay(100);
       digitalWrite(checkbluetooth, LOW);
+=======
+
+    // **** If the string matches one of the functions, execute that function *** 
+     
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
       if (voice == "left" || voice =="turn left"){
         digitalWrite(checkcommand, HIGH);
         delay(10);
@@ -407,9 +441,13 @@ void loop() {
         delay(1000);
         BothOn();
       }
+<<<<<<< HEAD
       if (voice == "sing") {
         firstSection();
       }
+=======
+      // ** Beware, dance has issues with the bluetooth
+>>>>>>> d2e0e98703334f45cab8788090408669cd1b7a5e
       if (voice == "dance") { // kinda does the macarena
         GASGASGAS();
         firstSection();
@@ -431,7 +469,7 @@ void loop() {
           BothOn();
         }
         if (dance_step == 5) {
-          GASGASGAS();
+          gotShot();
         }
         dance_step += 1;
         if (dance_step == 6) {
