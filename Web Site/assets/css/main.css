@@ -1670,14 +1670,6 @@ input, select, textarea {
 				padding-right: 3em;
 			}
 
-			.blog .image.featured {
-		    position: relative;
-		    float: left;
-		    background-position: 50% 50%;
-		    background-repeat: no-repeat;
-		    background-size: cover;
-				height: 200px;
-			}
 			.blog .image.ours {
 				height: 167px;
 				width: 376px;
