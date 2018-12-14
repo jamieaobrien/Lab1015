@@ -88,6 +88,13 @@ We added a visible laser to our robot and also included commands to turn the vis
 														We added a dance function in Sprint 3 which would make the robot move in a certain amount of steps, which resembled the macarena. We did this to increase the cuteness factor of our robot and make it more fun to use. The command was implemented by adding another if statement checking what the sent in bluetooth string is , ' if (voice == "dance") ', and adding a dance_step counter. For each iteration of the time step, the robot does a different movement. We used counters instead of having it do all the movements at once, because we wanted it to still be listening.
 													</p>
 													<p>
+														We also added a sing function and speakers to the robot, so when asked the robots could sing a popular song. We found speakers and added them to the robots. We then searched online and found an already-made song for Arduino: <a href=”https://gist.github.com/StevenNunez/6786124”>Imperial March</a>. We modified it to only use the first section, and made so that when the player asks a robot to sing, it will play the Imperial March.
+													</p>
+													<section>
+													<video width="320" height="240" controls>
+														<source src="images/videos/sing.mp4" type="video/mp4">
+														</section>
+													<p>
 														One problem we ran into here was that we would stop if the voice command was not equal to dance, but there was no stop to the dancing. This was causing some issues, but momentarily we fixed it by changing '  if (voice != "dance") {
       voice = "";' back to 'voice=""';' at the end of the commands list. The purpose of this is to be able to "clear the cache" at the end of each function, so that it can be continuously listening and react to a new command coming from the Bluetooth.
 													</p>
