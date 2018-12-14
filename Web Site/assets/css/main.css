@@ -1800,6 +1800,21 @@ input, select, textarea {
 				width: auto;
 			}
 
+
+			/* Motivation */
+			.motivation {
+				width: 80%;
+				margin: auto;
+				max-height: 500px;
+				object-fit: cover;
+			}
+
+			.motivation img {
+				width: 80%;
+				max-height: 500px;
+				object-fit: cover;
+			}
+
 	/* This is where the blogpost images are shaped responsively. Use max-height to adjust how big they'll be */
 
 		.image.featured {
@@ -2347,6 +2362,7 @@ $nav-height: 50px;
 				border-bottom-color: rgba(34, 30, 31, 0.98);
 			}
 
+
 /* Banner */
 
 	#banner {
@@ -2363,7 +2379,6 @@ $nav-height: 50px;
 		padding: 30vh 0;
 		margin: 1.25em 0 0 0;
 	}
-
 
 		#banner header {
 			background-color: rgba(34, 30, 31, 0.98);
