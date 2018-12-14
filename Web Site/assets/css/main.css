@@ -2335,7 +2335,7 @@ $nav-height: 50px;
 /* Banner */
 
 	#banner {
-		background: #fff url("../../images/lightroompics/cropped_heading.JPG"); /* bigger picture: IMG_5023*/
+		background: #fff url("../../images/lightroompics/cropped_heading.jpg"); /* bigger picture: IMG_5023*/
 		background-position: center center;
 		background-size: 100% auto;
 		background-repeat: no-repeat;
