@@ -193,6 +193,7 @@ input, select, textarea {
 		align-content: center;
 		margin: auto;
 		margin-top: 2em;
+		padding-left: 14em;
 	}
 
 	.container-blogpost {
@@ -1650,6 +1651,15 @@ input, select, textarea {
 		/* Little blogs */
 
 		.blog {
+			background: #ffffff;
+			border-bottom: solid 1px #ccc;
+			padding: 1em 1em 1em 1em;
+			position: inline-block;
+			text-align: center;
+			/* height: 400px; */
+		}
+
+		.team {
 			background: #ffffff;
 			border-bottom: solid 1px #ccc;
 			padding: 1em 1em 1em 1em;
