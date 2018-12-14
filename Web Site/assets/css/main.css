@@ -1857,14 +1857,14 @@ input, select, textarea {
 			width: 100%;
 			margin: auto;
 			height: 100%;
-			object-fit: cover;
+			object-fit: contain;
 			/* could be error */
 			/* height: 200px; */
 		}
 		.image.product img {
 			width: 100%;
 			height: 100%;
-			object-fit: cover;
+			object-fit: contain;
 		}
 
 		.image.article {
