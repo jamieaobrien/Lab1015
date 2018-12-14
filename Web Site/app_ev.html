@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+  <title>PoeProjectLab1015</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet' />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body class="homepage is-preload">
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <section id="header">
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul>
+          <li class="current">
+            <h1><a id="lab1015" href="index.html">Lab 1015</a></h1>
+          </li>
+          <li class="current"><a href="index.html">Home</a></li>
+          <li class="current"><a href="team.html">Team</a></li>
+          <li class="current"><a href="motivation.html">Motivation</a></li>
+          <li class="current"><a href="blogpage.html">Blog</a></li>
+      </nav>
+
+    </section>
+
+    <!-- Main -->
+    <section id="main">
+      <div class="container-blogpost">
+        <div class="row">
+          <div class="col-8">
+            <!-- Content -->
+            <article class="blog post">
+              <header>
+                <h2>Evolution of Our App</h2>
+              </header>
+              <p>
+                Read about our journey to creating the Android streaming recognition app we have today!
+              </p>
+            </article>
+            <article class="box post">
+              <section>
+                <header>
+                  <h2>Sprint 1</h2>
+                </header>
+                <br>
+                <p>
+                  We started by learning about Android Studio and Java, and researched different ways of doing speech recognition. We recorded some voices, and implemented a very rudimentary speech recognition program in Matlab, to see whether it
+                  would be feasible to create our own. When we realized how complicated it is to differentiate words, and do so quickly, we decided that a better use of our time would be to use a pre-existing API, with neural networks and huge
+                  training data sets already existing.
+                </p><br>
+                <p>
+                  At this point in time, none of us had any idea how to make a phone app, and none of us knew Java, the programming language that Android Studio uses. Thus, we decided to start with the Android Speech API in our first app, since it
+                  was built for Android Studio, and would likely be the easiest to implement. If we had time later in the project, we would want to switch to one of the harder to implement, higher-functioning APIs. While this research was going on,
+                  we downloaded the <a href=”https://play.google.com/store/apps/details?id=com.iotboys.com”>IOT Boys</a> voice recognition app, so that we could test integration with voice commands and our firmware, mechanical, and electrical
+                    components. </p> <br>
+              </section>
+            </article>
+            <article class="box post">
+              <section>
+                <header>
+                  <h2>Sprint 2</h2>
+                </header>
+                <p>
+                  The IOT Boys app was not open source, so we spent most of this sprint familiarizing ourselves with Android Studio, and producing our own version of the IOT Boys app, using the Android Speech API for speech recognition, and adding
+                  the functionality of Bluetooth connecting and data-sending.
+                </p>
+                <br>
+                <p>
+                  This app would record your voice after you clicked the “speak” button, and then use the Android Speech API to run voice recognition and return a string for what you said. When the “Connect to Bluetooth” button is clicked, the app
+                  searches for our HC-05 bluetooth board address, and establishes a connection to it. After processing speech, it sends the full string to the Bluetooth board in bytes, and the BT board sends that data to the Arduino through the
+                  Serial monitor. The Arduino then converts the bytes back into a String, and checks if that matches any of the string commands we’ve programmed. In our first iteration, we had the following commands:
+                  <ul>
+                    <li>“Forward”</li>
+                    <li>“Back”</li>
+                    <li>“Left”</li>
+                    <li>“Right”</li>
+                    <li>“Stop”</li>
+                    <li>“Ram” (speed boost forward for a second)</li>
+                  </ul>
+                </p><br>
+                <p>
+                  By this point, our software had reached MVP- we made an app ourselves, and it was able to process and send commands to the Bluetooth module! Our next goal was to shorten the atrocious delay between commands and actuation, and to
+                  make the app more reliable/robust.
+                </p>
+              </section>
+              <section>
+            </article>
+            <article class="box post">
+              <header>
+                <h2>Sprint 3</h2>
+              </header>
+              <p>
+                In this sprint, we tried (and failed) to implement the PocketSphinx speech recognition software in our app. Our downfall was that no one really knew Java, and so we weren’t able to debug the more complicated data structures that this
+                library required. We pivoted to trying the Google Cloud Speech API, which had more resources available, so we were luckily able to download a demo version, and customize it to our needs. This made integration possible with a faster
+                speech recognition service (streaming recognition).
+              </p>
+              <br>
+              <p>
+                However, at this point in time the app was not very robust. There were times when the app would pause and simply stop listening- there is no on or off button in the streaming recognition service, so the only way to debug this was to
+                close the app and open it up again. The Bluetooth connection process also took a significant amount of computing power, so it would occasionally cause the app to crash. We addressed these problems in the next sprint.
+              </p>
+              <br>
+              <p> The commands in this sprint remained about the same from the last, with the exception of “shoot”, for shooting lasers. We also added synonyms for words, like “fire”, “pew pew”, “write”, “go”, and “halt”.
+                The app UI also changed, because we added buttons to connect the user to different robots. Each robot has a different Bluetooth board, with a unique code. Clicking on a robot’s button would connect the phone with its BT board,
+                enabling the app to send data to the robot’s Arduino.
+              </p>
+
+            </article>
+            <article class="box post">
+              <section>
+                <header>
+                  <h2>Final Sprint<h2>
+                </header>
+                <p>In the final sprint, we introduced Async Tasks, a helper class for thread handling in Android Studio. The way that Android apps run, computation automatically happens on the main UI thread, which also happens to handle displaying
+                  the UI. We discovered that the main reason for awkward pauses in the app’s Speech Recognition were due to the main UI thread being overloaded and skipping frames (not listening). This is because all the Bluetooth connection and
+                  sending things to BT were happening on that one very overwhelmed UI thread. Turning a function into an Async Task fixes this problem because it creates a new thread, and runs those tasks in the background, parallel to the UI
+                  thread. This helped smooth out the app’s running, and remove some of the awkward waiting pauses.
+                </p>
+                <br>
+                <p>
+                  Another problem our app was facing was that it was sending <em>everything</em> to the Bluetooth module. And sometimes, with streaming recognition, it would send a whole paragraph. The app sends data in bytes, and the BT module
+                  sends that to the Arduino. Too many words at too high a speed quickly overwhelmed the Arduino’s Serial monitor, and either prevented it from receiving more commands, or chopped off everything over 5 characters long. In order to
+                  address this problem, we created a function in the app’s code, which searched the recognized string for our commands, and sent only those one-word commands to the Arduino. We also converted this to function to an Async Task, so
+                  that it did not interfere with the app’s processing.
+                </p>
+                <br>
+                <p>In addition to this debugging and optimization, we added some fun new commands and functional commands to our app and Arduino code, to make our robots more exciting and easier to use:
+                  <ul>
+                    <li>“Left 45, 90, or 180”</li>
+                    <li>“Right 45, 90, or 180”</li>
+                    <li>“Spin”</li>
+                    <li>“Run”, or “Boo”: robot becomes scared, turns 180, and runs away</li>
+                    <li>“Dance”: robot does the macarena</li>
+                    <li>“Sing”: robot sings a fun song (different for bee and dragon)</li>
+                  </ul>
+                </p>
+                <br>
+                <p>In this iteration, we also customized the app interface, adding the buttons with cute icons to connect to the Bee and Dragon robots, and introducing a button for disconnecting from Bluetooth, to make switching robots easier for
+                  the user.
+                </p>
+              </section>
+            </article>
+
+
+            <!-- Sidebar -->
+          </div>
+          <div class="col-4 col-12-medium">
+            <section class="blog">
+              <div class="image software"> <img src="images/app_pics/ProtoApp.jpg" alt="" /></div>
+              <header>
+                <h3>Our first Proto-App! v.1.0</h3>
+              </header>
+              <p>Mid-sprint 2: Basic functionality. Uses Android Speech API for voice recognition, and has a one-button BT connection to BT board.</p>
+            </section>
+            <section class="blog">
+              <div class="image software"><img src="images/app_pics/phone_UI.jpg" alt="" /></div>
+              <header>
+                <h3>Proto-App v.2.3</h3>
+              </header>
+              <p>Sprint 2 end: Introducing a BT button for each robot! And some pictures for decoration.</p>
+            </section>
+            <section class="blog">
+              <header>
+                <div class="image software"> <img src="images/app_pics/Speech.jpg" alt="" /></div>
+                <h3>Google Cloud Speech App v.3.0</h3>
+              </header>
+              <p>Sprint 3: Transitioned to Google Cloud Speech API for streaming recognition. One button BT connect.</p>
+            </section>
+            <section class="blog">
+              <header>
+                <div class="image software"> <img src="images/poepics/Speech2.jpg" alt="" /></div>
+                <h3>Final App v.3.5</h3>
+              </header>
+              <p>Sprint 4: BT button for each robot, and disconnect button! Uses Async tasks for multi-threading! Has a fancy filtering function!</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Copyright -->
+    <div id="footer">
+      <div id="copyright">
+        <ul class="links">
+          <li> <i style="font-size:14px" class="fa">&#xf113;</i> Check out our <a href="https://github.com/jamieaobrien/Lab1015">code</a> on Github!</li>
+          <li> Made with &#10084; by Lab 1015</li>
+          <li> December 2018</li>
+          <li> Components borrowed from <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
