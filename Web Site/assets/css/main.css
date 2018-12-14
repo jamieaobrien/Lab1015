@@ -186,6 +186,17 @@ input, select, textarea {
 		max-width: 100;
 	}
 
+	.team-photos {
+		align-items: center;
+		align-content: center;
+
+		margin-left: 200px;
+	}
+
+	.group-photos {
+		margin-left: 100px;
+	}
+
 /* For the section with the dogs and faces */
 	.container-team {
 		text-align: center;
