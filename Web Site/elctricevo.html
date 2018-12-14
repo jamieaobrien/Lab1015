@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>PoeProjectLab1015</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">Lab 1015</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li class="current"><a href="index.html">Home</a></li>
+								<li class="current"><a href="team.html">Team</a></li>
+								<li class="current"><a href="motivation.html">Motivation</a></li>
+								<li class="current"><a href="blogpage.html">Blog</a></li>
+								<li class="current"><a href="finalproduct.html">Final Product</a></li>
+
+
+						</nav>
+
+				</section>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+						<div class="row">
+							<div class="col-8 col-12-medium">
+
+								<!-- Content -->
+									<article class="box post">
+										<a href="#" class="image featured"><img src="/home/allison/Lab1015/Web Site/images/groupphotos/groupPic.jpeg" alt="" /></a>
+										<header>
+											<h2>Electrical Evolution</h2> </header>
+										<p>
+											Over the course of our project, we created and iterated through a lot of circuit designs as our robots gained more functions and
+											required more complicated parts. The electrical component of our robot increased greatly during the second sprint as we decided
+											to make the main focus of the game our robots play from sumo wrestling to laser tag. Although the electrical component is not as
+											heavy as the software component, it provided its own challenges and problems through our process.
+										</p>
+
+										<section>
+											<header>
+												<h3>Sprint 1</h3>
+											</header>
+											<p>
+												In the first sprint our robots circuit only consisted of the arduino, the bluetooth module and the two motors. We also used 8
+												AA alkaline batteries to power our robot. These components were the basic things our robot needed to be made up of. There was not
+												many issues with the electrical components at this point in the project because the circuit was very basic and we did not have very
+												many of them. A circuit diagram can be seen to the right for sprint 1.
+											</p>
+										</section>
+										<section>
+											<header>
+												<h3>Sprint 2</h3>
+											</header>
+											<p>
+												During the second sprint, we decided to make the focus of our game laser tag, in order to add a greater electrical challenge and to
+												make the game our robots were used to play more fun. We somewhat underestimated the challenge of including IR sensors and LEDs into
+												our project because the IR LEds would need to pulse at a certain rate for the sensors to know that they had been hit. We had a lot
+												of trouble using the arduino software to get the LEDs to pulse at the correct frequency. Eventually, we found tutorials online, and
+												we were able to make code based off of that to create the lasers for our robot. We were unable to find the time to actually put the entire
+												robot together, but the planned circuit diagram can be seen to the right.
+											</p>
+										</section>
+										<section>
+											<header>
+												<h3>Sprint 3</h3>
+											</header>
+											<p>
+												For the third sprint we changed a lot of the pinouts for our components for the sake of clarity and to match our code. The major addition
+												was the visible laser that we decided to include to help the user aim since they were unable to see the light coming from the IR LED. We
+												discovered that the IR LED created a problem for us because it drained a large amount of current from the circuit, which left all of the
+												components without power. We decided to switch to nickel metal hydride, which produce more current than alkaline batteries, to a compensate
+												for the huge drain caused by the visible laser. We were able to fully get IR LEDs fully functional and tested them to see that the robot responded
+												to being hit as we expected it to.
+											</p>
+										</section>
+										<section>
+											<header>
+												<h3>Final Sprint</h3>
+											</header>
+											<p>
+												In the final sprint we were having issues with the arduino not listening to commands that came through the bluetooth module.We decided to add
+												two LEDs to the circuit to help test that the robot was responding to commands and could execute them as well.
+											</p>
+										</section>
+									</article>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- Sidebar -->
+									<section class="box">
+										<a href="#" class="image featured"><img src="images/sprint1elec.jpg" alt="" /></a>
+										<header>
+											<h3>Sprint 1 Circuit Diagram</h3>
+										</header>
+									</section>
+									<section class="box">
+										<a href="#" class="image featured"><img src="images/sprint2elec.jpg" alt="" /></a>
+										<header>
+											<h3>Spint 2 Circuit Diagram</h3>
+										</header>
+									</section>
+									<section class="box">
+										<a href="#" class="image featured"><img src="images/sprint3elec.jpg" alt="" /></a>
+										<header>
+											<h3>Sprint 3 Circuit Diagram</h3>
+										</header>
+									</section>
+
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
