@@ -435,6 +435,9 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
             if (text.contains("ram") | text.contains("fast")) {
                 SendtoBT("ram");
             }
+            if (text.contains("sing") | text.contains("serenade")) {
+                SendtoBT("sing");
+            }
             if (text.contains("left") | (text.contains("lef"))) {
                 if (text.contains("45") | text.contains("30") | text.contains("forty")) {
                     SendtoBT("left 45");
