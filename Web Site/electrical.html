@@ -16,17 +16,22 @@
 
 			<!-- Banner -->
 			<section id="intro">
-					<a href="team.html" class="image featured"><img src="images/poepics/sprint3n6.JPG" alt="" /></a>
+					<!--<a href="team.html" class="image featured"><img src="images/poepics/sprint3n6.JPG" alt="" /></a>-->
+
+
 			</section>
 			<!-- Header -->
 				<section id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html">Lab 1015</a></h1>
+						<!--<h1><a href="index.html">Lab 1015</a></h1>-->
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
+								<li class="current">
+									<h1><a id="lab1015" href="index.html">Lab 1015</a></h1>
+								</li>
 								<li class="current"><a href="index.html">Home</a></li>
 								<li class="current"><a href="team.html">Team</a></li>
 								<li class="current"><a href="motivation.html">Motivation</a></li>
@@ -42,34 +47,77 @@
 
 			<!-- Main -->
 				<section id="main">
-					<div class="container">
+					<div class="container-blogpost">
 						<div class="row">
 							<div class="col-12">
-
 
 
 
                 <article class="box post">
                   <header>
                     <h2>Electrical Subsystem</h2>
-                    <p> </p>
-                  </header>
-                  <p>
+										<br>
+										<a class="image featured"><img src="images/circuit/robots.png" alt="" ></a>
+                 </header>
 
-                  </p>
+									</article>
+									<header class="major">
+										<h2>Overview</h2>
+									</header>
+									<article class="box post">
+									<!--<h3 id = "tip">Overview</h3>-->
+									<p>
+										We designed our circuitry to be simple, cost efficient, and easily replicable. Each robot consists of an IR LED, a visible laser pointer, two IR sensors, a bluetooth module, and an Arduino Uno r3 microprocessor. The IR LEDs and sensors interface with each other and the Arduino to make the robot shoot and react to being shot, the visbile laser helps the players see their robot shooting its laser, and the bluetooth module receives signals from the app and communicates them to the Arduino. Aside from the Arduino, the electronics per robot cost about $20. On top of this, we used an Adafruit motor shield to communicate commands from the Arduino to our motors. We also used nickel metal hydride batteries to provide additional current required by the visible lasers. Altogether, the total cost of electronics per robot is around $60-80, depending on where parts are purchased. Overall, it is a simple circuit that is explained below, and links to data sheets for the IR LEDs, IR sensors, and bluetooth module are included here as well.
+									</article>
+									<header class="major">
+									<h2>Circuit</h2>
+									</header>
+									<article class="box post">
                   <p>
-
+										As shown in the schematic below, the Arduino provides ground for all five components included in the diagram, and it supplied 5V of supply current for the sensors and the bluetooth module. The laser and IR LED receive power from pins 8 and 3, respectively, such that they turn on when a user wants the robot to activate its laser. Both of these components also require a small resistor, 50 Ohms and 200 Ohms, respectively, to decrease the voltage going to the laser and LED to prevent electrical damage to the parts. The IR sensors send signals to the Arduino's analog pins 2 and 4 so it can process when the robot has been hit by a competitor's laser. The bluetooth module connects its TX and RX pins to the Arduino's pins 10 and 11 to ensure that the Arduino is receiving the voice commands coming from the app.
                   </p>
-                  	<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-                    <h3>Progression</h3>
-                    <p> </p>
+
+									  <!--<a href="#" class="image featured"><img src="images/circuit/schematic.png" alt="" />
+									  <!--<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>-->
+										<figure>
+											<img src="images/circuit/schematic.png" alt="" style="width:100%">
+										</figure>
+									</article>
+									<header class="major">
+										<h2>Components</h2>
+									</header>
+									<article class="box post">
+										<p>Below are part numbers linked to data sheets for the IR LED, IR sensor, and Bluetooth module that we used. These parts can be replaced for others, but the system may need to be adjusted accordingly.
+
+										</p>
+										<figure>
+										<img src="images/circuit/lte.PNG" alt="" style="width:25%">
+										<figcaption><p><a href = "http://optoelectronics.liteon.com/upload/download/DS-50-92-0015/LTE-4208.pdf">LTE-4208</a></p></figcaption>
+										</figure>
+
+
+										<figure>
+										 <img src="images/circuit/tsop48.JPG" alt="" style="width:25%">
+									   <figcaption><p><a href = "http://www.vishay.com/docs/82459/tsop48.pdf"> TSOP-4830</a></p></figcaption>
+								 		</figure>
+
+
+									  <figure>
+											<img src="images/circuit/hc-05.jpg" alt="" style="width:25%">
+	 								   <figcaption><p><a href = "http://www.electronica60norte.com/mwfls/pdf/newBluetooth.pdf"> HC-05 Bluetooth Module</a></p></figcaption>
+								    </figure>
+										</article>
+									<!--	<header class="major">
+										<h2>Progression</h2>
+										</header>
+                    <article class="box post">
                     <p>
                       The progression of our electrical subsystem can be found in our blog posts:
-                      <ul>
+                    <ul>
                         <li><a href=#>Title</a></li>
                       </ul>
                     </p>
-                </article>
+                </article>-->
 
               </div>
               </section>
