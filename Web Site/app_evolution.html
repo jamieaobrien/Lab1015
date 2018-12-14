@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet' />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 
 <body class="homepage is-preload">
@@ -43,10 +43,10 @@
             <!-- Content -->
             <article class="blog post">
               <header>
-                <h2>Evolution of Mechanical Systems</h2>
+                <h2>Evolution of Our App</h2>
               </header>
               <p>
-                Follow the evolution of our mechanical systems through our project!
+                Read about our journey to creating the Android streaming recognition app we have today!
               </p>
             </article>
             <article class="box post">
@@ -54,21 +54,13 @@
                 <header>
                   <h2>Sprint 1</h2>
                 </header>
-                <br />
+                <br>
                 <p>
-                  Our sprint one robot was built purely as a platform to test integration. It was not robust or made to last, and little design choices were put into it. It was, effectively, a platform on wheels. The robot was made of cardboard,
-                  because we could
-                  easily find scrap cardboard to mess with, the motors were just the first ones we could find, and the wheels were made to look cute, but not be effective at being wheels.
-
-                </p>
-                <br />
+                  We started by learning about Android Studio and Java, and researched different ways of doing speech recognition. We recorded some voices, and implemented a very rudimentary speech recognition program in Matlab, to see whether it would be feasible to create our own. When we realized how complicated it is to differentiate words, and do so quickly, we decided that a better use of our time would be to use a pre-existing API, with neural networks and huge training data sets already existing.
+                </p><br>
                 <p>
-                  The platform did have holes cut exactly to fit the Arduino and the breadboard, which was nice, and laser cutting meant we did not have to worry about tolerancing or the time it will take to manufacture it. We gave it a “cute”
-                  design, but
-                  it
-                  wasn’t specifically inspired by anything. The robot performed how we wanted it to, but having it made out of cardboard was concerning, and we wanted to look at what motor options we had.
-                  <br />
-                </p>
+                  At this point in time, none of us had any idea how to make a phone app, and none of us knew Java, the programming language that Android Studio uses. Thus, we decided to start with the Android Speech API in our first app, since it was built for Android Studio, and would likely be the easiest to implement. If we had time later in the project, we would want to switch to one of the harder to implement, higher-functioning APIs. While this research was going on, we downloaded the <a href=”https://play.google.com/store/apps/details?id=com.iotboys.com”>IOT Boys</a> voice recognition app, so that we could test integration with voice commands and our firmware, mechanical, and electrical components.
+                </p><br>
               </section>
             </article>
             <article class="box post">
@@ -77,26 +69,23 @@
                   <h2>Sprint 2</h2>
                 </header>
                 <p>
-                  We started sprint two by sitting down and discussing what we wanted our robots to look like. We decided that creature inspiration could lead to really cute and fun designs. We then decided what creatures we would want to use to
-                  inspire our
-                  designs. After making a list of around 40 creatures, we decided that the dragon, bee, armadillo, and hedgehog would be the creatures we base our designs off of. Everyone seemed most enthusiastic about the dragon and the bee, so we
-                  decided
-                  to stick with those two creatures to start. We had a ‘homework assignment” for everyone to come to the next scrum with a design for the bee and the dragon.
+                  The IOT Boys app was not open source, so we spent most of this sprint familiarizing ourselves with Android Studio, and producing our own version of the IOT Boys app, using the Android Speech API for speech recognition, and adding the functionality of Bluetooth connecting and data-sending.
                 </p>
-                </br>
+                <br>
                 <p>
-                  We then started laying out pros and cons of materials we wanted to use to build the robots. We knew the “shell” of the robots would likely need to be 3D printed, as we wanted to do complex geometric shapes. We then were trying to
-                  decide
-                  between laser cutting the base out of hardboard or 3D printing it. We finally decided that 3D printing would be better, because we would need multiple layers of hardboard to get the design we wanted, which would start getting
-                  fairly heavy
-                  and thick.
-                </p>
+                  This app would record your voice after you clicked the “speak” button, and then use the Android Speech API to run voice recognition and return a string for what you said. When the “Connect to Bluetooth” button is clicked, the app searches for  our HC-05 bluetooth board address, and establishes a connection to it. After processing speech, it sends the full string to the Bluetooth board in bytes, and the BT board sends that data to the Arduino through the Serial monitor. The Arduino then converts the bytes back into a String, and checks if that matches any of the string commands we’ve programmed. In our first iteration, we had the following commands:
+                  <ul>
+                    <li>“Forward”</li>
+                    <li>“Back”</li>
+                    <li>“Left”</li>
+                    <li>“Right”</li>
+                    <li>“Stop”</li>
+                    <li>“Ram” (speed boost forward for a second)</li>
+                  </ul>
+                </p><br>
                 <p>
-                  We then finalized the design for the two robots, and got to work CADing them. Although we had planned to have some amount of the robots done by the end of this sprint, we underestimated how much work we would have to do on the
-                  software side
-                  of things, so we were unable to manufacture anything. We set a goal of having our MVP manufactured by the end of sprint 3, which meant two robots!
+                  By this point, our software had reached MVP- we made an app ourselves, and it was able to process and send commands to the Bluetooth module! Our next goal was to shorten the atrocious delay between commands and actuation, and to make the app more reliable/robust.
                 </p>
-                <br />
               </section>
               <section>
             </article>
@@ -105,20 +94,19 @@
                 <h2>Sprint 3</h2>
               </header>
               <p>
-                We hit the ground running in sprint 3. We almost immediately began prints for the robots, knowing they would take a long time. It was good we did this, as we hit a lot of obstacles pretty early on. One huge one was that we forgot to
-                tolerance everything properly. We also ran into issues with the 3D printers such as prints failing, taking too long, running out of filament, or warping our parts. This made us add a new pre-check before printing parts, so someone
-                would
-                look over a 3D print before it was printed to ensure filament and printers weren’t being wasted.
+                In this sprint, we tried (and failed) to implement the PocketSphinx speech recognition software in our app. Our downfall was that no one really knew Java, and so we weren’t able to debug the more complicated data structures that this library required. We pivoted to trying the Google Cloud Speech API, which had more resources available, so we were luckily able to download a demo version, and customize it to our needs. This made integration possible with a faster speech recognition service (streaming recognition).
               </p>
-              <br />
-
+              <br>
               <p>
-                Because of all the print failures we ran into, we did not have time to print the broken base of our bee, so we pivoted to more quickly making it out of hardboard instead. Our exact concerns about using hardboard originally came up
-                immediately, as the base was heavy and thick. It worked for our MVP, but
-                we did not want this to be in our final product. We also ran into a fair amount of issues with the dragon, such as the base missing holes to mount wheels and motors. Because of this, we were only able to have the bee completed by the
-                end of
-                this sprint.
+                However, at this point in time the app was not very robust. There were times when the app would pause and simply stop listening- there is no on or off button in the streaming recognition service, so the only way to debug this was to close the app and open it up again. The Bluetooth connection process also took a significant amount of computing power, so it would occasionally cause the app to crash. We addressed these problems in the next sprint.
               </p>
+              <br>
+              <p> The commands in this sprint remained about the same from the last, with the exception of “shoot”, for shooting lasers. We also added synonyms for words, like “fire”, “pew pew”, “write”, “go”, and “halt”.
+              </p>
+              <br>
+              <p> The app UI also changed, because we added buttons to connect the user to different robots. Each robot has a different Bluetooth board, with a unique code. Clicking on a robot’s button would connect the phone with its BT board, enabling the app to send data to the robot’s Arduino.
+              </p>
+
             </article>
             <article class="box post">
               <section>
