@@ -42,7 +42,6 @@
 
 								<!-- Content -->
 									<article class="box post">
-										<a href="#" class="image featured"><img src="/home/allison/Lab1015/Web Site/images/groupphotos/groupPic.jpeg" alt="" /></a>
 										<header>
 											<h2>Infrared LEDs</h2> </header>
 										<p>
@@ -50,7 +49,7 @@
                        They are not visible to the human eye, but they are visible to a phone camera -
                        especially if its an old phone without an IR filter (because that was a problem which we encountered)!
 										</p>
-                    <a href="#" class="image featured"><img src="images/poepics/ir.png" alt="" /></a>
+
 
                     <p>
                       They way in which the IR Leds work in order for the sensors to pick them up, is that they have to modulate at two different frequencies.
@@ -58,9 +57,9 @@ One frequency is the carrier frequency, for the TSOP4038 its 38kHz, and the sens
 Once it is, the sensor will pick up other data, which is transfered in the form of another frquency.
                     </p>
                     <p>
-                      So, the task for the IR led was to modulate something like this:
+                      So, the task for the IR led was to modulate something like the second figure on the right. The signal has to modulate at two frequency, one which is shorter and one which is longer. The signal is off and modulating at the second frequency for equal amounts of time.
                     </p>
-                    <a href="#" class="image featured"><img src="images/poepics/ir.png" alt="" /></a>
+
 										<p>
                       At first, we didn't know all of this and  we then tried shining the IR leds with no modulation onto the sensor and got no response. We had to go back and read up on what an IR sensor actually detects at this point.
 Next, we used the instructions from <a href="http://www.zovirl.com/2008/11/12/building-a-universal-remote-with-an-arduino/">Zovirl Industries</a> as a base, and modified the code to our needs.
@@ -84,11 +83,32 @@ Next, we used the instructions from <a href="http://www.zovirl.com/2008/11/12/bu
 
 								<!-- Sidebar -->
 									<section class="box">
-										<a href="#" class="image featured"><img src="images/librarypictures/IRLEDinRobot.JPG" alt="" /></a>
+									  <a href="#" class="image featured"><img src="images/poepics/ir.png" alt="" /></a>
 										<header>
-											<h3>Integration</h3>
+											<h3>IR light in Light Spectrum</h3>
 										</header>
-										<p>Here's the IR LED integrated into the robot</p>
+										<p>It's just out of the range of vision</p>
+									</section>
+									<section class="box">
+									  <a href="#" class="image featured"><img src="images/poepics/diagramfrequencies.jpg" alt="" /></a>
+										<header>
+											<h3>Diagram of IR Modulation</h3>
+										</header>
+										<p>A visual we made of the two frequencies modulating.</p>
+									</section>
+									<video width="320" height="240" controls>
+										<source src="images/videos/tvremote.mp4" type="video/mp4">
+											<h3>A Video of TV Remote Modulating IR Light</h3>
+									</section>
+									<section class="blog">
+									<video width="320" height="240" controls>
+										<source src="images/videos/firstcodeLED.mp4" type="video/mp4">
+											<h3>A Video of the First IR Modulation Code Working</h3>
+									</section>
+									<section class="blog">
+									<video width="320" height="240" controls>
+										<source src="images/videos/newcodeLED.mp4" type="video/mp4">
+											<h3>A Video of the Second IR Modulation Code Working</h3>
 									</section>
 
 
