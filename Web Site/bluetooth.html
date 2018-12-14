@@ -58,23 +58,26 @@
 												<h3>Bluetooth Module</h3>
 											</header>
 											<p>
-												Each of the robots used an HC-05 bluetooth module to communicate with the phone appplication. The module itself needed between
-												3.3 and 5 volts to work properly. The bluetooth module initially only transmits data, so we needed to use AT commands to put it
-												into slave mode. This would make the bluetooth module only recieve data and relay it to the arduino instead of trying to send it.
-												We also had to wire the TX and RX pins of the bluetooth module to I/O pins of the arduino that we had specified to act as TX and RX
-												pins within the arduino code using the Software Serial library. The TX and RX pins recievedata as bytes and translates that data as
-												strings or chars within the serial terminal. If these two connections are not wired properly, the arduino will not recieve the voice
-												commands.
+												During the first sprint we had a single bluetooth module that we had borrowed from another student. The module worked perfectly well for our purposes
+												and did not cause us any problems. We bought four of our own bluetooth modules during the second sprint because we ambitiously believed that we would
+												be able to create four robots. We had a difficult time getting the modules to work at first because we were unaware that they needed to be put into slave
+												mode in order to recieve data. We used these four modules for the rest of the project.
 											</p>
 										<section>
 											<header>
 												<h3>Arduino Code</h3>
 											</header>
 											<p>
-												Within the arudino code, we needed to specify where the arduino would be receiving data  and the formata that the data would be in. We caused
-												the software serial library to create a second serial terminal that would allow the arduino to communicate with the bluetooth module. A second
-												serial terminal is needed because the arduino's default serial terminal has a set baudrate that is too low for the bluetooth module. The arduino
-												reads the output on the serial monitor as a string. The arduino uses these strings to decide which command to run.
+												At first, we had the arduino code read the serial terminal for the string that was sent by the phone app to the bluetooth module. Since we used a third
+												party app to communicate with the bluetooth module, it was very easy to know that the issues were being caused by the arduino code. The code respnded well
+												because the arduino only searched for the voice commands and executed movements, and there were no other functions to slow it down. The code became more complex
+												during the next sprint because we needed a higher baudrate for the bluetooth modules we had bought. Then the third sprint brought a lot of issues involving power and
+												timing. We had added more functions to the code so that the robot would collect data from its IR sensors and turn on the IR LED at a certain rate. After adding this
+												functionality, the arduino began to have a harder time picking up commands from the bluetooth module and would often become overloaded with a huge backlog of commands that
+												either were not recieved or were recieved and not acted upon. We did not managed to fix the problem involving a backlog of commmands. An issue with power arose when
+												we started to integrate all the pieces of the robot together. The visible laser we used to aim drained too much current from the rest of the circuit which caused the
+												bluetooth module to shut off. This was fixed by using nickel metal hydride batteries, which produce more current than commonly used batteries. We were, sadly, unable to
+												fix the issue with the backlog of commands.
 											</p>
 									</section>
 									<section>
@@ -82,12 +85,12 @@
 											<h3>Application Code</h3>
 										</header>
 										<p>
-											The phone app has the code for connecting the phone to the bluetooth module within a seperate thread than the voice recognition of the software
-											because having them both in the main thread created large delays and caused the application to freeze. The bluetooth is in a sub-thread that runs
-											in the background while the voice recognition is in the main thread that recieves most of the memory and power. The app has buttons that connect
-											to the bluetooth module for each robot based upon the UID of the module. After it connects, the app creates a bluetooth socket, which is a communication
-											thread that allows two devices to relay data to one another. Because the bluetooth module is a slave that only recieves data, the phone application
-											only needs to convert the text it has to bytes and sen it through the connection.
+											For the phone application, we chose to use an app called IOTboys to communicate with the bluetooth module. We believed that using an app that provided most of the
+											functions that we wanted would be a good place to start before we tried to make our own app. The biggest issue we saw with using this app was the long delay between
+											recognizing the words the user said and relaying it to the bluetooth module. The bluetooth connection with the IOTboys app relied on bluetooth connections that the phone
+											had previously made. When we began to devolop our own app, we decided to first focus on being able to relay data and made the app connect directly to the speceific UID
+											of one of the bluetoth modules. We ended up keeping this for the rest of the project and created buttons for connecting to each robot. At one point there was an issue where
+											the app would crash if the phone tried to send data while it was not connected to one of the robots, but we resolved it by using try and catch functions.
 										</p>
 								</section>
 										<section>
@@ -95,11 +98,10 @@
 												<h3>So in conclusion ...</h3>
 											</header>
 											<p>
-												Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-												eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-												elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-												sit amet nullam consequat feugiat dolore tempus. Elementum odio duis semper risus et lectus commodo fringilla.
-												Maecenas sagittis convallis justo vel mattis.
+												There is not of lot of issues or changes with the implementation of bluetooth connection in our project. The majority of our issues did not involve the connection itself,
+												but there were a lot of issues with using the data that was transferred. We successfully got the phone app to communicate to the arduino though a bluetooth module, but the
+												arduino had a hard time keeping up with the number of commands that it recieved. Also the arduino would sometimes skip commands because it would only check for the voice
+												commands once during the entire loop.
 											</p>
 										</section>
 									</article>
