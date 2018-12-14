@@ -1,0 +1,4 @@
+#Mon Nov 05 20:56:34 EST 2018
+base.0=C\:\\Users\\ajensen\\Desktop\\Lab1015\\Deadman\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex

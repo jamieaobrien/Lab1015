@@ -6,7 +6,7 @@ Adafruit_MotorShield AFMS = Adafruit_MotorShield();
 Adafruit_DCMotor *myMotorL = AFMS.getMotor(3);
 Adafruit_DCMotor *myMotorR = AFMS.getMotor(2);
 #define BIT_IS_SET(i, bits)  (1 << i & bits) // variable that has two inputs, which are parameterized
-
+const int DRAGON[]     = {255, 136, 130, 34};
 #include <SoftwareSerial.h> // bluetooth import
 
 SoftwareSerial BTSerial(10,11); //setting up bluetooth
@@ -387,7 +387,7 @@ if (voice.length() > 0) { //If there's something to read, execute functions
       }
       if (voice == "shoot" || voice=="pewpew" || voice=="fire"){
 
-        Shootybootymcscooty();
+        shoot();
         BTSerial.flush();
         Serial.println("backlog"+String(voice));
       }
@@ -409,7 +409,7 @@ if (voice.length() > 0) { //If there's something to read, execute functions
         firstSection();
       }
       if (voice == "dance") { // kinda does the macarena
-        GASGASGAS();
+        gotShot();
         firstSection();
         if (dance_step == 1) {
           Right90();
