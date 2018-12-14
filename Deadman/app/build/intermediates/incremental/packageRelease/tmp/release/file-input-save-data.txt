@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Mon Nov 05 20:56:35 EST 2018
-0.baseType=DIRECTORY
-0.base=C\:\\Users\\ajensen\\Desktop\\Lab1015\\Deadman\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
-0.path=classes.dex
-0.set=DEX
-count=1
