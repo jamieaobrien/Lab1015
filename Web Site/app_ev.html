@@ -89,7 +89,7 @@
                     <li>“Stop”</li>
                     <li>“Ram” (speed boost forward for a second)</li>
                   </ul>
-                </p><br>
+                </p>
                 <p>
                   By this point, our software had reached MVP- we made an app ourselves, and it was able to process and send commands to the Bluetooth module! Our next goal was to shorten the atrocious delay between commands and actuation, and to
                   make the app more reliable/robust.
@@ -103,8 +103,10 @@
               </header>
               <p>
                 In this sprint, we tried (and failed) to implement the PocketSphinx speech recognition software in our app. Our downfall was that no one really knew Java, and so we weren’t able to debug the more complicated data structures that this
-                library required. We pivoted to trying the Google Cloud Speech API, which had more resources available, so we were luckily able to download a demo version, and customize it to our needs. This made integration possible with a faster
-                speech recognition service (streaming recognition).
+                library required. We pivoted to trying the <a href="https://cloud.google.com/speech-to-text/docs/streaming-recognize">Google Cloud Speech API</a>, which has recognition technology (released August 2018) called <em>streaming recognition</em>. </p>
+              <br>
+              <p>This means that is continuously listening, running enhanced recognition algorithms in the background, and returning results. We chose this API instead of the PocketSphinx and Android Speech Recognizer APIs because of its streaming recognition capabilities, high accuracy rate, and mostly available documentation. Google Cloud Speech was harder to implement for Android than Android Speech, but easier to implement than Pocketsphinx, because we were able to find more example code and documentation to learn from. This made integration possible with a faster
+                speech recognition service.
               </p>
               <br>
               <p>
@@ -180,7 +182,7 @@
             </section>
             <section class="blog">
               <header>
-                <div class="image software"> <img src="images/poepics/Speech2.jpg" alt="" /></div>
+                <div class="image software"> <img src="images/app_pics/newscreen.jpeg" alt="" /></div>
                 <h3>Final App v.3.5</h3>
               </header>
               <p>Sprint 4: BT button for each robot, and disconnect button! Uses Async tasks for multi-threading! Has a fancy filtering function!</p>
