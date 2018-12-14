@@ -1554,7 +1554,7 @@ input, select, textarea {
 		margin-bottom: .5em;
 	}
 
-	h3 #tip {
+	#tip {
 		margin-top: 0;
 	}
 
@@ -1800,6 +1800,21 @@ input, select, textarea {
 				width: auto;
 			}
 
+
+			/* Motivation */
+			.motivation {
+				width: 80%;
+				margin: auto;
+				max-height: 500px;
+				object-fit: cover;
+			}
+
+			.motivation img {
+				width: 80%;
+				max-height: 500px;
+				object-fit: cover;
+			}
+
 	/* This is where the blogpost images are shaped responsively. Use max-height to adjust how big they'll be */
 
 		.image.featured {
@@ -1816,18 +1831,33 @@ input, select, textarea {
 			object-fit: cover;
 		}
 
-		.image-article {
+		.image.article {
 			max-width: 100%;
 			margin: auto;
-			max-height: 400px;
-			object-fit: cover;
+			height:400px;
+			object-fit: contain;
 			/* could be error */
 			/* height: 200px; */
 		}
-		.image-article img {
+		.image.article img {
 			max-width: 100%;
-			max-height: 400px;
-			object-fit: cover;
+			height: 400px;
+			object-fit: contain;
+		}
+
+		.image.software {
+			max-width: 100%;
+			margin: auto;
+			height: 500px;
+			padding-top: 1em;
+			object-fit: contain;
+			/* could be error */
+			/* height: 200px; */
+		}
+		.image.software img {
+			max-width: 100%;
+			height: 480px;
+			object-fit: contain;
 		}
 
 		.image.left {
@@ -2332,10 +2362,11 @@ $nav-height: 50px;
 				border-bottom-color: rgba(34, 30, 31, 0.98);
 			}
 
+
 /* Banner */
 
 	#banner {
-		background: #fff url("../../images/lightroompics/cropped_heading.JPG"); /* bigger picture: IMG_5023*/
+		background: #fff url("../../images/lightroompics/cropped_heading.jpg"); /* bigger picture: IMG_5023*/
 		background-position: center center;
 		background-size: 100% auto;
 		background-repeat: no-repeat;
@@ -2348,7 +2379,6 @@ $nav-height: 50px;
 		padding: 30vh 0;
 		margin: 1.25em 0 0 0;
 	}
-
 
 		#banner header {
 			background-color: rgba(34, 30, 31, 0.98);

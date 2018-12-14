@@ -11,7 +11,8 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 
 <body class="homepage is-preload">
@@ -88,19 +89,22 @@
 								The Arduino is the part of the robot which takes in commands from the phone and moves the motors, shoots the IR LED, turns the visible laser, keeps track of lives on and senses being shot. We are using an Adafruit V2 Motorshield, and connecting the Arduino's
 5V, GND, A2,A4, D3, D10, D11 and D12 pins. The libraries which we are using are the motorshield library for the V2 MotorShield and SoftwareSerial for Bluetooth communication.
 							</p>
+							<br>
 							<p>
-
 In the end, we had two final arduino ino files. One file controls the bee and the other controls the dragon. The reason why we have two different ino files for them is because we are using two different motors for the two different robots, and the motors turn at different speeds.
 							</p>
+							<br>
 							<p>
-
 Besides specific settings for the motor speeds, the two files are essentially the same and we can describe them as one. The file starts with including necessary files for the two libraries we are using and creating variables, like an integer variable for life counts which initializes at three. We include helper functions turn the IR LED on and off. We also assign the specific movements which our robots can move (left, right) to their own functions. Here is where the two ino files differ. We timed and calculated both motor types spinning so that we knew how long it took the motors to spin one degree. Based on this, we created functions to turn left or right at forty-five, ninety, or one-hundred eighty degrees. These functions work by turning the motor speed on and adding the appropiate delay, which we calculated to give the right degree of turn. Another function which we created is to shoot. In this function, we turn the visible laser on first, shoot oscillating IR LED light, and turn the visible laser off. The point of the laser is for the user to get an understanding of where the IR LED is hitting.
+</p>
+<br>
+<p>
 In the void loop, we start off by checking if the robot has zero lives. If it does, then we exit out of the void loop, essentially turning off all robot functionality. If the robot is not out of lives, then we read the analog input of the IR sensors. If the sensors read values under 100, then the robots are set to spin around, to indicate visually that they have been hit, and the life count is subtracted by one.
 							</p>
+							<br>
 							<p>
-
 When all of that is resolved, the next step in the void loop is to listen to the serial port while it is available. We are using a serial through the SoftwareSerial library, which allows us to use digital pins 10 and 11 instead of pins 0 and 1 for communication with the Bluetooth. Pins 0 and 1 are connected to hardware which enables serial communication, but with the SoftwareSerial library, we can do the same with other digital pins. It also allows us to use the 9600 baud rate, instead of the 38,400 baud rate which is used by serial communication. The serial which we are listening to is the input from the Bluetooth and we are reading strings received from the Serial port. When the string is a string of non-zero value, we save the input to an already defined variable named "voice". We then check that this string matches one of our commands with if statements testing for every command. If the string matches one of the strings we set in our if statements, the Arduino calls the functions in the if statement, which are the helper functions we defined in the beginning and contain motion or shooting.
-At the end of the void loop, we reset the variable "voice" to an empty string and iterate over the void loop again. 
+At the end of the void loop, we reset the variable "voice" to an empty string and iterate over the void loop again.
 							</p>
 						</article>
 
@@ -148,37 +152,42 @@ At the end of the void loop, we reset the variable "voice" to an empty string an
 									that the bluetooth module is broken in some way and needs to be replaced.
 								</p>
 						</article>
+						<ul class="links">
+							<li>Go to <a href="https://github.com/jamieaobrien/Lab1015">code</a> for the code discussed in this section</li>
+						</ul>
 
 					</div>
 		</section>
 
 
-		<!-- Copyright -->
-		<div id="footer">
-			<div id="copyright">
-				<ul class="links">
-					<li> Made with &#10084; by Lab 1015</li>
-					<li> December 2018</li>
-					<li> Components borrowed from <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
+		<!-- When copying the footer, make sure to copy the link to font awesome in the head, so the icon appears -->
+				<!-- Copyright -->
+				<div id="footer">
+					<div id="copyright">
+						<ul class="links">
+							<li> <i style="font-size:14px" class="fa">&#xf113;</i>  Check out our <a href="https://github.com/jamieaobrien/Lab1015">code</a> on Github!</li>
+							<li> Made with &#10084; by Lab 1015</li>
+							<li> December 2018</li>
+							<li> Components borrowed from <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+
 			</div>
-		</div>
+			</div>
+			</div>
+			</section>
 
-	</div>
-	</div>
-	</div>
-	</section>
+			</div>
 
-	</div>
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+		</body>
 
-</body>
-
-</html>
+		</html>
