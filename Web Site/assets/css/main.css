@@ -1819,14 +1819,29 @@ input, select, textarea {
 		.image.article {
 			max-width: 100%;
 			margin: auto;
-			height: 300px;
+			height:400px;
 			object-fit: contain;
 			/* could be error */
 			/* height: 200px; */
 		}
 		.image.article img {
 			max-width: 100%;
-			height: 300px;
+			height: 400px;
+			object-fit: contain;
+		}
+
+		.image.software {
+			max-width: 100%;
+			margin: auto;
+			height: 500px;
+			padding-top: 1em;
+			object-fit: contain;
+			/* could be error */
+			/* height: 200px; */
+		}
+		.image.software img {
+			max-width: 100%;
+			height: 480px;
 			object-fit: contain;
 		}
 
