@@ -19,26 +19,24 @@
 			<!-- Header -->
 				<section id="header">
 
-					<!-- Logo -->
-						<h1><a href="index.html">Lab 1015</a></h1>
-
 					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li class="current"><a href="index.html">Home</a></li>
-								<li class="current"><a href="team.html">Team</a></li>
-								<li class="current"><a href="motivation.html">Motivation</a></li>
-								<li class="current"><a href="blogpage.html">Blog</a></li>
-								<li class="current"><a href="finalproduct.html">Final Product</a></li>
-
-
-						</nav>
+					<nav id="nav">
+						<ul>
+							<li class="current">
+								<h1><a id="lab1015" href="index.html">Lab 1015</a></h1>
+							</li>
+							<li class="current"><a href="index.html">Home</a></li>
+							<li class="current"><a href="team.html">Team</a></li>
+							<li class="current"><a href="motivation.html">Motivation</a></li>
+							<li class="current"><a href="blogpage.html">Blog</a></li>
+							<li class="current"><a href="finalproduct.html">Final Product</a></li>
+					</nav>
 
 				</section>
 
 			<!-- Main -->
 				<section id="main">
-					<div class="container">
+					<div class="container-blogpost">
 						<div class="row">
 							<div class="col-8 col-12-medium">
 
@@ -64,13 +62,13 @@
 												interacting with the robot was provided from outside sources, which meant we had fewer issues about debugging our code and spent less time fixing mechanical or
 												electrical mistakes. A smaller integration that held a lot of the basic qualities of our robot helped us obtain a better understanding of the processs of integration
 												and some of the challenges that it may bring in the future.
-											</p>
+											</p><br>
 											<p>
 												For the prototype, the mechanical and electrical components worked well together. We only had the bluetooth module and the motors as electrical components, and at
 												the beginning of the integration processs, we had assumed that four AA batteries would provide enough power for our robots. However, we underestimated the voltage that the
 												bluetooth module and motors would require to function appropriately. The bluetooth module would often turn off while we were testing the robot, which led is to increasing the number of
 												batteries we used to eight.
-											</p>
+											</p><br>
 											<p>
 												The software components acted well within our goals, but we noticed that the software we were using to communicate with the bluetooth board had a very long delay
 												between listening for the voice command and sending the data to the arduino. The app had a specific wait time for the voice command, which caused a very long wait time before
@@ -86,18 +84,18 @@
 												During the second sprint, we wer unable to accomplish a full integration of our robot. We did not expect the app to consume the majority of our work time for
 												the sprint. We had planned to create two fully functioning robots, and to implement the laser tag aspect of our game into both of them in order to test the viability of
 												our gameplay. However, the results of this sprint were seperate pieces of the robot at vary levels of functionality.
-											</p>
+											</p><br>
 											<p>
 												We had many issues creating the mechanical components because we chose to 3-D print them instead of laser cutting wood, which is a time consuming
 												process and is far more prone to error. We had put off 3-D modeling a lot of the mechanocal components of the robot because we believed that the process would be simple. The new
 												designs we had created for the robots to make them look more aesthetically pleasing took more time to model than we had intially expected, and we did not have the time to fully print them before
 												the sprint had ended.
-											</p>
+											</p><br>
 											<p>
 												The electrical component of our project became a lot larger as we had decided to make laser tag the main focus of our robot's functionality. We were, unfortunately,
 												only able to create a prototype of the circuit that held the neccessary LEDs and sensors. We could not test the prototype for the circuit because we were unable to create
 												the mechanical components to hold the sensors and LEDS in the proper place.
-											</p>
+											</p><br>
 											<p>
 												The software component was finished this sprint. We created the app, which worked as expected. However we were unable to test the arduinos full capability of communcating
 												with the app through the bluetooth module because we did not put together enough of the mechanical or electrical components.
@@ -111,19 +109,19 @@
 												The robot finally came together during the third sprint. We had completed and integrated the mecahnical, electrical and software components of our project.
 												Although the individual pieces seemed to function fine, they had a lot of problems when they were put together. Most of these issues were eventually dealt with, but
 												there were some things that we were unable to fix before the end of the sprint. On the upside, we were able to complete our robots and they were mostly functional.
-											</p>
+											</p><br>
 											<p>
 												As we were trying to put together the different mechanical parts of the robbt, we realized that a lot of pieces had printed with parts being the wrong size or being in the wrong place.
 												This was especially true of the holes that were on the base and shell of the robot. We realized that reprinting the robots would be too time consuming, so we decided to  drill holes
 												into the correct places on the pieces to make the motor mounts and the IR sensors fit to within the base and shell.
-											</p>
+											</p><br>
 											<p>
 												As for the electrical component of our project, we had mostly completed the laser tag functionality on our robot. The IR LEDs and sensors were fully wired into the circuit board and then
 												connected to the shell of the robots. We noticed that the IR LEDs would not turn on when we wired everything together. Eventually, we discovered that the visible laser that we were using
 												to assist aiming was drawing a large amount of current from our system. We decided to switch to nickel metal hydride batteries because they give out much more current than commonly used
 												batteries. Afterwards the sensors and the IR LEDs worked as we had expected them to. The visibile laser was only somewhat functional afterwards as it would not always turn on when we
 												excpected it to.
-											<p>
+											<p><br>
 												The software system o the robot worked very well. Overall, it had very few issues interacting with the rest of the systems. The main changes to the arduino code was the addition of a
 												few new commands to the robot that specified turning angles and added the functionality for the IR LEDs and sensors. The application code now used the google speech api, which allowed us
 												to add active listening capability. We also made the app only send the correct keywords out of a long string of words. There  were bugs with the app concerning the fact that that it had a very difficult time picking up
@@ -146,14 +144,14 @@
 
 								<!-- Sidebar -->
 									<section class="box">
-										<a href="#" class="image featured"><img src="images/IMG_4111.jpg" alt="" /></a>
+										<a href="#" class="image featured"><img src="images/pictureswithcamera/IMG_4111.JPG" alt="" /></a>
 										<header>
 											<h3>Integration in action</h3>
 										</header>
 										<p>Electrical components being added to the base</p>
 									</section>
 									<section class="box">
-										<a href="#" class="image featured"><img src="images/librarypictures/_MG_9361.jpg" alt="" /></a>
+										<a href="#" class="image featured"><img src="images/librarypictures/_MG_9361.JPG" alt="" /></a>
 										<header>
 											<h3>Integration complete</h3>
 										</header>

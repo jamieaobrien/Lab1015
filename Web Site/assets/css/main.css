@@ -1889,6 +1889,7 @@ input, select, textarea {
 		}
 
 		.image.article {
+			align-self: center;
 			max-width: 100%;
 			margin: auto;
 			height:400px;
@@ -1897,6 +1898,7 @@ input, select, textarea {
 			/* height: 200px; */
 		}
 		.image.article img {
+			align-self: center;
 			max-width: 100%;
 			height: 400px;
 			object-fit: contain;

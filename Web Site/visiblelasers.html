@@ -5,107 +5,135 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>PoeProjectLab1015</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'/>
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
 
-			<!-- Header -->
-				<section id="header">
+<head>
+	<title>PoeProjectLab1015</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet' />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li class="current"><h1><a id="lab1015" href="index.html">Lab 1015</a></h1></li>
-								<li class="current"><a href="index.html">Home</a></li>
-								<li class="current"><a href="team.html">Team</a></li>
-								<li class="current"><a href="motivation.html">Motivation</a></li>
-								<li class="current"><a href="blogpage.html">Blog</a></li>
-								<li class="current"><a href="finalproduct.html">Final Product</a></li>
-						</nav>
+<body class="homepage is-preload">
+	<div id="page-wrapper">
 
-				</section>
+		<!-- Header -->
+		<section id="header">
 
-			<!-- Main -->
-			<section id="main">
-				<div class="container-blogpost">
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li class="current">
+						<h1><a id="lab1015" href="index.html">Lab 1015</a></h1>
+					</li>
+					<li class="current"><a href="index.html">Home</a></li>
+					<li class="current"><a href="team.html">Team</a></li>
+					<li class="current"><a href="motivation.html">Motivation</a></li>
+					<li class="current"><a href="blogpage.html">Blog</a></li>
+					<li class="current"><a href="finalproduct.html">Final Product</a></li>
+			</nav>
+
+		</section>
+
+		<!-- Main -->
+		<section id="main">
+			<div class="container-blogpost">
+				<div class="row">
+					<div class="col-8">
+
+						<!-- Content -->
+						<article class="box post">
+							<header>
+								<h2>Arduino Code</h2>
+							</header>
+							</header>
+
+							<p></p>
+
+							<p>
+								We integrated visible lasers into our robots because shooting with IR LEDs is great for safety, range and accesibility, but it is hard to see where you're shooting. Visible lasers allow a shooter to see exactly where she is aiming when she
+								goes to shoot.
+							</p><br>
+							<p>
+								The visible lasers which we used started their Lab 1015 journey at a Dollar Tree store in Framingham, Massachusetts. We called the three nearest Dollar Tree stores if they carried laser keychains and only the one in Framingham did, so it was
+								to Framingham we went!
+							</p><br>
+							<p>
+								After coming back, we had five laser keychains. We ripped the top and bottoms off of the keychains to take out the circuit inside. Then, according to this <a href="https://www.instructables.com/id/Modifying-An-Inexpensive-Laser-Pointer-Keychain-Fo/">Instructables
+									tutorial</a> we cannabalized the keychain into a separate laser. Here's how it went:
+							</p><br>
+							<p>
+								The circuit inside the keychain had two buttons on it, a spring-like connection to the coin cell batteries, a white, visible LED on it, and the laser. We desoldered everything except for the laser using a soldering iron, a soldering wick and
+								needle-nose pliers.
+							</p><br>
+							<p>
+								Next, we cut the whole bottom half of the circuit off using wire cutters. We did this because we only needed a positive and negative connection to the laser.
+							</p><br>
+							<p>
+								Last we soldered wires onto two spots where we had desoldered a button.
+							</p>
+
+						</article>
+
+					</div>
+					<div class="col-4 col-12-medium">
+
+						<section class="blog">
+							<div class="image featured"><img src="images/poepics/keychain.jpeg" alt="" /></div>
+							<header>
+								<h3>Keychain Visible Laser</h3>
+							</header>
+							<p>The circuit inside the keychain had two buttons on it, a spring-like connection to the coin cell batteries, a white, visible LED on it, and the laser.</p>
+						</section>
+						<section class="blog">
+							<div class="image featured"> <img src="images/poepics/laser_upclose.jpeg" alt="" /></div>
+							<header>
+								<h3>Up Close</h3>
+							</header>
+							<p>Here is a picture of the deconstructed laser soldered to our circuit.</p>
+						</section>
+						<section class="blog">
+							<div class="image featured"> <img src="images/librarypictures/lasercoverpic.JPG" alt="" /></div>
+							<header>
+								<h3>"Shoot!"</h3>
+							</header>
+							<p>Here is the dragon robot with the laser in action.</p>
+						</section>
+					</div>
+				</div>
+			</div>
+		</section>
 
 
-								<!-- Content -->
-									<article class="box post">
-										<header>
-											<h2>Arduino Code</h2> </header>
-										</header>
+		<!-- When copying the footer, make sure to copy the link to font awesome in the head, so the icon appears -->
+		<!-- Copyright -->
+		<div id="footer">
+			<div id="copyright">
+				<ul class="links">
+					<li> <i style="font-size:14px" class="fa">&#xf113;</i> Check out our <a href="https://github.com/jamieaobrien/Lab1015">code</a> on Github!</li>
+					<li> Made with &#10084; by Lab 1015</li>
+					<li> December 2018</li>
+					<li> Components borrowed from <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</div>
 
-                    <p></p>
+	</div>
+	</div>
+	</div>
+	</section>
 
-              	<p>
-                We integrated visible lasers into our robots because shooting with IR LEDs is great for safety, range and accesibility, but it is hard to see where you're shooting. Visible lasers allow a shooter to see exactly where she is aiming when she goes to shoot.
-                </p>
-                <p>
-                  The visible lasers which we used started their Lab 1015 journey at a Dollar Tree store in Framingham, Massachusetts. We called the three nearest Dollar Tree stores if they carried laser keychains and only the one in Framingham did, so it was to Framingham we went!
-                </p>
-                <p>
-                  After coming back, we had five laser keychains. We ripped the top and bottoms off of the keychains to take out the circuit inside.
-                </p>
-                <p>
-                  Then, according to this <a href="https://www.instructables.com/id/Modifying-An-Inexpensive-Laser-Pointer-Keychain-Fo/">Instructables tutorial</a> we cannabalized the keychain into a separate laser. Here's how it went:
-                </p>
-                <p>
-                  The circuit inside the keychain had two buttons on it, a spring-like connection to the coin cell batteries, a white, visible LED on it, and the laser.
-                </p>
-                <a href="#" class="image featured"><img src="images/poepics/keychain.jpeg" alt="" /></a>
-                <p>
-                We desoldered everything except for the laser using a soldering iron, a soldering wick and needle-nose pliers.
-                </p>
-                <p>
-                  Next, we cut the whole bottom half of the circuit off using wire cutters. We did this because we only needed a positive and negative connection to the laser.
-                </p>
-                <p>
-                  Last we soldered wires onto two spots where we had desoldered a button.
-                </p>
-                <a href="#" class="image featured"><img src="images/poepics/laser_upclose.jpeg" alt="" /></a>
-                <a href="#" class="image featured"><img src="images/librarypictures/lasercoverpic.JPG" alt="" /></a>
+	</div>
 
-									</article>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
-							</div>
+</body>
 
-
-							<!-- When copying the footer, make sure to copy the link to font awesome in the head, so the icon appears -->
-									<!-- Copyright -->
-									<div id="footer">
-										<div id="copyright">
-											<ul class="links">
-												<li> <i style="font-size:14px" class="fa">&#xf113;</i>  Check out our <a href="https://github.com/jamieaobrien/Lab1015">code</a> on Github!</li>
-												<li> Made with &#10084; by Lab 1015</li>
-												<li> December 2018</li>
-												<li> Components borrowed from <a href="http://html5up.net">HTML5 UP</a></li>
-											</ul>
-										</div>
-									</div>
-
-								</div>
-								</div>
-								</div>
-								</section>
-
-								</div>
-
-								<!-- Scripts -->
-								<script src="assets/js/jquery.min.js"></script>
-								<script src="assets/js/jquery.dropotron.min.js"></script>
-								<script src="assets/js/browser.min.js"></script>
-								<script src="assets/js/breakpoints.min.js"></script>
-								<script src="assets/js/util.js"></script>
-								<script src="assets/js/main.js"></script>
-
-							</body>
-
-							</html>
+</html>

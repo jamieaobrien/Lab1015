@@ -1,153 +1,160 @@
 <!DOCTYPE HTML>
 <!--
-	Dopetrope by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Videos not working, commented out- the videos taken on Alli's phone don't work for some reason.
 -->
 <html>
-	<head>
-		<title>PoeProjectLab1015</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'/>
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
 
-			<!-- Header -->
-				<section id="header">
+<head>
+	<title>PoeProjectLab1015</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet' />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-					<!-- Logo -->
-						<h1><a href="index.html">Lab 1015</a></h1>
+<body class="homepage is-preload">
+	<div id="page-wrapper">
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li class="current"><a href="index.html">Home</a></li>
-								<li class="current"><a href="team.html">Team</a></li>
-								<li class="current"><a href="motivation.html">Motivation</a></li>
-								<li class="current"><a href="blogpage.html">Blog</a></li>
-								<li class="current"><a href="finalproduct.html">Final Product</a></li>
+		<!-- Header -->
+		<section id="header">
 
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li class="current">
+						<h1><a id="lab1015" href="index.html">Lab 1015</a></h1>
+					</li>
+					<li class="current"><a href="index.html">Home</a></li>
+					<li class="current"><a href="team.html">Team</a></li>
+					<li class="current"><a href="motivation.html">Motivation</a></li>
+					<li class="current"><a href="blogpage.html">Blog</a></li>
+					<li class="current"><a href="finalproduct.html">Final Product</a></li>
+			</nav>
 
-						</nav>
+		</section>
 
-				</section>
+		<!-- Main -->
+		<section id="main">
+			<div class="container-blogpost">
+				<div class="row">
+					<div class="col-8 col-12-medium">
 
-			<!-- Main -->
-				<section id="main">
-					<div class="container">
-						<div class="row">
-							<div class="col-8 col-12-medium">
-
-								<!-- Content -->
-									<article class="box post">
-										<header>
-											<h2>Infrared LEDs</h2> </header>
-										<p>
-											Infrared LEDs are light-emitting diodes that only emit light in the infrared spectrum.
-                       They are not visible to the human eye, but they are visible to a phone camera -
-                       especially if its an old phone without an IR filter (because that was a problem which we encountered)!
-										</p>
-
-
-                    <p>
-                      They way in which the IR Leds work in order for the sensors to pick them up, is that they have to modulate at two different frequencies.
-One frequency is the carrier frequency, for the TSOP4038 its 38kHz, and the sensor will not pick up any data unless the sensor is modulating at that carrier frequency.
-Once it is, the sensor will pick up other data, which is transfered in the form of another frquency.
-                    </p>
-                    <p>
-                      So, the task for the IR led was to modulate something like the second figure on the right. The signal has to modulate at two frequency, one which is shorter and one which is longer. The signal is off and modulating at the second frequency for equal amounts of time.
-                    </p>
-
-										<p>
-                      At first, we didn't know all of this and  we then tried shining the IR leds with no modulation onto the sensor and got no response. We had to go back and read up on what an IR sensor actually detects at this point.
-Next, we used the instructions from <a href="http://www.zovirl.com/2008/11/12/building-a-universal-remote-with-an-arduino/">Zovirl Industries</a> as a base, and modified the code to our needs.
-                    </p>
-                    <p>
-                      To be honest, this code wasn't completely clear to us, but we tried to parse it and used it anyway.
-                    </p>
-                    <p>
-                      There was a time when the leds stopped turning on, and we had thought that the leds were drawing too much power or that they weren't communicating with the arduino anymore. It turns out, that the leds were getting short circuited because the IR sensors were slightly exposed (not completely covered with heat shrink) and short circuiting themselves.
-                    </p>
-                    <p>
-                      In the meantime while we were debugging why the IR leds kept short-circuiting we created new code to modulate the LEDs, this time, we went about it correctly. By this, I mean understanding what the IR LEDs needed to be doing and constructing our own code to do so. In this code, we turn the voltage on and off for the carrier frequency, using the millis and the inverse of the frequency (period). Then, when the voltage is on, a boolean constant,isOn, is set to true and we digitalWrite the voltage to modulate at the second frequency.
-                    </p>
-                    <p>
-                      In the end, the IR LED wasn't giving us as many problems as we though, but it was cool to learn about and use !
-                    </p>
-									</article>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- Sidebar -->
-									<section class="box">
-									  <a href="#" class="image featured"><img src="images/poepics/ir.png" alt="" /></a>
-										<header>
-											<h3>IR light in Light Spectrum</h3>
-										</header>
-										<p>It's just out of the range of vision</p>
-									</section>
-									<section class="box">
-									  <a href="#" class="image featured"><img src="images/poepics/diagramfrequencies.jpg" alt="" /></a>
-										<header>
-											<h3>Diagram of IR Modulation</h3>
-										</header>
-										<p>A visual we made of the two frequencies modulating.</p>
-									</section>
-										<section class="blog">
-									<video width="320" height="240" controls>
-										<source src="images/videos/tvremote.mp4" type="video/mp4">
-											<h3>A Video of TV Remote Modulating IR Light</h3>
-									</section>
-									<section class="blog">
-									<video width="320" height="240" controls>
-										<source src="images/videos/firstcodeLED.mp4" type="video/mp4">
-											<h3>A Video of the First IR Modulation Code Working</h3>
-									</section>
-									<section class="blog">
-									<video width="320" height="240" controls>
-										<source src="images/videos/newcodeLED.mp4" type="video/mp4">
-											<h3>A Video of the Second IR Modulation Code Working</h3>
-									</section>
-
-
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- When copying the footer, make sure to copy the link to font awesome in the head, so the icon appears -->
-						<!-- Copyright -->
-						<div id="footer">
-							<div id="copyright">
-								<ul class="links">
-									<li> <i style="font-size:14px" class="fa">&#xf113;</i>  Check out our <a href="https://github.com/jamieaobrien/Lab1015">code</a> on Github!</li>
-									<li> Made with &#10084; by Lab 1015</li>
-									<li> December 2018</li>
-									<li> Components borrowed from <a href="http://html5up.net">HTML5 UP</a></li>
-								</ul>
-							</div>
-						</div>
+						<!-- Content -->
+						<article class="box post">
+							<header>
+								<h2>Infrared LEDs</h2>
+							</header>
+							<p>
+								Infrared LEDs are light-emitting diodes that only emit light in the infrared spectrum.
+								They are not visible to the human eye, but they are visible to a phone camera -
+								especially if its an old phone without an IR filter (because that was a problem which we encountered)!
+							</p><br>
+							<p>
+								They way in which the IR Leds work in order for the sensors to pick them up, is that they have to modulate at two different frequencies.
+								One frequency is the carrier frequency, for the TSOP4038 its 38kHz, and the sensor will not pick up any data unless the sensor is modulating at that carrier frequency.
+								Once it is, the sensor will pick up other data, which is transfered in the form of another frquency.
+							</p><br>
+							<p>
+								So, the task for the IR led was to modulate something like the second figure on the right. The signal has to modulate at two frequency, one which is shorter and one which is longer. The signal is off and modulating at the second frequency
+								for equal amounts of time.
+							</p><br>
+							<p>
+								At first, we didn't know all of this and we then tried shining the IR leds with no modulation onto the sensor and got no response. We had to go back and read up on what an IR sensor actually detects at this point.
+								Next, we used the instructions from <a href="http://www.zovirl.com/2008/11/12/building-a-universal-remote-with-an-arduino/">Zovirl Industries</a> as a base, and modified the code to our needs.
+							</p><br>
+							<p>
+								There was a time when the leds stopped turning on, and we had thought that the leds were drawing too much power or that they weren't communicating with the arduino anymore. It turns out, that the leds were getting short circuited because the
+								IR sensors were slightly exposed (not completely covered with heat shrink) and short circuiting themselves.
+							</p><br>
+							<p>
+								In the meantime while we were debugging why the IR leds kept short-circuiting we created new code to modulate the LEDs, this time, we went about it correctly. By this, I mean understanding what the IR LEDs needed to be doing and constructing
+								our own code to do so. In this code, we turn the voltage on and off for the carrier frequency, using the millis and the inverse of the frequency (period). Then, when the voltage is on, a boolean constant is set to True, and we
+								digitalWrite the voltage to modulate at the second frequency.
+							</p><br>
+							<p>
+								In the end, the IR LEDs were able to be picked up by our robot's sensors, and we learned many cool, unexpected things along the way!
+							</p>
+						</article>
 
 					</div>
-					</div>
-					</div>
-					</section>
+					<div class="col-4 col-12-medium">
+
+						<!-- Sidebar -->
+						<section class="box">
+							<a href="#" class="image featured"><img src="images/poepics/ir.png" alt="" /></a>
+							<header>
+								<h3>IR light in Light Spectrum</h3>
+							</header>
+							<p>It's just out of the range of vision</p>
+						</section>
+						<section class="box">
+							<a href="#" class="image featured"><img src="images/poepics/diagramfrequencies.jpg" alt="" /></a>
+							<header>
+								<h3>Diagram of IR Modulation</h3>
+							</header>
+							<p>A visual we made of the two frequencies modulating.</p>
+						</section>
+						<section class="blog">
+							<video width="320" height="240" controls>
+								<source src="images/videos/irreading.mp4" type="video/mp4">
+							</video>
+							<h3>A Video of IR "Shoot" in Action</h3>
+							<p>The "shoot" or "fire" command is sent to one robot, causing it to send an IR LED pulse. The other robot is connected to the computer's serial plotter, so when it receives the IR shot from the other robot, a visible spike appears.
+						</section>
+						<!-- <section class="blog">
+							<video width="320" height="240" controls>
+								<source src="images/videos/tvremote.mp4" type="video/mp4">
+							</video>
+							<h3>A Video of TV Remote Modulating IR Light</h3>
+						</section>
+						<section class="blog">
+							<video width="320" height="240" controls>
+								<source src="images/videos/firstcodeLED.mp4" type="video/mp4">
+							</video>
+							<h3>A Video of the First IR Modulation Code Working</h3>
+						</section>
+						<section class="blog">
+							<video width="320" height="240" controls>
+								<source src="images/videos/newcodeLED.mp4" type="video/mp4">
+							</video>
+							<h3>A Video of the Second IR Modulation Code Working</h3>
+						</section> -->
+
 
 					</div>
+				</div>
+			</div>
+		</section>
 
-					<!-- Scripts -->
-					<script src="assets/js/jquery.min.js"></script>
-					<script src="assets/js/jquery.dropotron.min.js"></script>
-					<script src="assets/js/browser.min.js"></script>
-					<script src="assets/js/breakpoints.min.js"></script>
-					<script src="assets/js/util.js"></script>
-					<script src="assets/js/main.js"></script>
+		<!-- When copying the footer, make sure to copy the link to font awesome in the head, so the icon appears -->
+		<!-- Copyright -->
+		<div id="footer">
+			<div id="copyright">
+				<ul class="links">
+					<li> <i style="font-size:14px" class="fa">&#xf113;</i> Check out our <a href="https://github.com/jamieaobrien/Lab1015">code</a> on Github!</li>
+					<li> Made with &#10084; by Lab 1015</li>
+					<li> December 2018</li>
+					<li> Components borrowed from <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</div>
 
-				</body>
+	</div>
+	</div>
+	</div>
+	</section>
 
-				</html>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
